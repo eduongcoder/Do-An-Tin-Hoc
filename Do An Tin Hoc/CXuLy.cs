@@ -15,13 +15,13 @@ namespace Do_An_Tin_Hoc
         private Dictionary<string,CMatHang> dsMatHang = new Dictionary<string,CMatHang>();
         private Dictionary<string,CNhanSu> dsNhanSu = new Dictionary<string,CNhanSu>();
         private static List<CMatHang> dsDoanhThu = new List<CMatHang>();
-        private Dictionary<DateTime,CNhanSu> dsCaLam = new Dictionary<DateTime,CNhanSu>();
+        private List<CNhanSu> dsCaLam = new List<CNhanSu>();
 
         //Xử Lý Ca làm
 
         public List<CNhanSu> layDsCaLam()
         {
-            return dsCaLam.Values.ToList();
+            return dsCaLam.ToList();
         }
 
         public bool docFileCaLam(string tenfile)
@@ -29,7 +29,7 @@ namespace Do_An_Tin_Hoc
             try
             {
                 FileStream fs = new FileStream(tenfile, FileMode.Open);
-                dsCaLam = (Dictionary<DateTime, CNhanSu>)bf.Deserialize(fs);
+                dsCaLam = (List<CNhanSu>)bf.Deserialize(fs);
                 fs.Close();
                 return true;
             }

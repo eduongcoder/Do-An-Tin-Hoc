@@ -56,6 +56,12 @@
     <Compile Include="frmCaLam.Designer.cs">
       <DependentUpon>frmCaLam.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCaLamAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCaLamAdmin.Designer.cs">
+      <DependentUpon>frmCaLamAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
     <EmbeddedResource Include="frmCaLam.resx">
       <DependentUpon>frmCaLam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCaLamAdmin.resx">
+      <DependentUpon>frmCaLamAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>

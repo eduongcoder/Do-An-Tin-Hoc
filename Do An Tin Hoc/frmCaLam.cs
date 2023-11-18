@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace Do_An_Tin_Hoc
 {
-    public partial class frmCaLam : Form
+    public partial class frmCaLamNV : Form
     {
         private List<List<Button>> matrix;
 
         public List<List<Button>> Matrix { get => matrix; set => matrix = value; }
 
         private List<string> dateOfWeek = new List<string>() { "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
-        public frmCaLam()
+        public frmCaLamNV()
         {
             InitializeComponent();
         }

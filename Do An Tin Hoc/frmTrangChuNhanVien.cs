@@ -35,10 +35,15 @@ namespace Do_An_Tin_Hoc
 
         private void btnCaLam_Click(object sender, EventArgs e)
         {
-            frmCaLam frmCaLam = new frmCaLam();
+            frmCaLamNV frmCaLam = new frmCaLamNV();
             this.Hide();
             frmCaLam.ShowDialog();
             this.Show();
+        }
+
+        private void btnDiemDanh_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

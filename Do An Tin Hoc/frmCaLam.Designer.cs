@@ -1,6 +1,6 @@
 ﻿namespace Do_An_Tin_Hoc
 {
-    partial class frmCaLam
+    partial class frmCaLamNV
     {
         /// <summary>
         /// Required designer variable.
@@ -197,7 +197,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // frmCaLam
+            // frmCaLamNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -206,7 +206,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "frmCaLam";
+            this.Name = "frmCaLamNV";
             this.Text = "Ca Làm";
             this.Load += new System.EventHandler(this.frmCaLam_Load);
             this.panel1.ResumeLayout(false);

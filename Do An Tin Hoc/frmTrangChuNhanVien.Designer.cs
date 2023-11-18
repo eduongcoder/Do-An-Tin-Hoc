@@ -66,6 +66,7 @@
             this.btnDiemDanh.TabIndex = 5;
             this.btnDiemDanh.Text = "Điểm Danh";
             this.btnDiemDanh.UseVisualStyleBackColor = true;
+            this.btnDiemDanh.Click += new System.EventHandler(this.btnDiemDanh_Click);
             // 
             // btnCaLam
             // 
