@@ -63,5 +63,10 @@ namespace Do_An_Tin_Hoc
             frmDoanhThu.ShowDialog();
             this.Show();
         }
+
+        private void btnCaLam_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

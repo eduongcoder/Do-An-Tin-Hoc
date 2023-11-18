@@ -13,7 +13,7 @@ namespace Do_An_Tin_Hoc
     public partial class FrmDoanhThu : Form
     {
         private readonly CXuLy xuLy = new CXuLy();
-        string diachi = "data.txt";
+        //string diachi = "data.txt";
         string diachi2 = "DoanhThu.txt";
         public FrmDoanhThu()
         {

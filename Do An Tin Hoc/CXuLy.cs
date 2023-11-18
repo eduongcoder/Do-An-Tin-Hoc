@@ -15,11 +15,47 @@ namespace Do_An_Tin_Hoc
         private Dictionary<string,CMatHang> dsMatHang = new Dictionary<string,CMatHang>();
         private Dictionary<string,CNhanSu> dsNhanSu = new Dictionary<string,CNhanSu>();
         private static List<CMatHang> dsDoanhThu = new List<CMatHang>();
+        private Dictionary<DateTime,CNhanSu> dsCaLam = new Dictionary<DateTime,CNhanSu>();
 
-        
-        //Xử Lý Đăng Nhập
-       // public bool 
-       
+        //Xử Lý Ca làm
+
+        public List<CNhanSu> layDsCaLam()
+        {
+            return dsCaLam.Values.ToList();
+        }
+
+        public bool docFileCaLam(string tenfile)
+        {
+            try
+            {
+                FileStream fs = new FileStream(tenfile, FileMode.Open);
+                dsCaLam = (Dictionary<DateTime, CNhanSu>)bf.Deserialize(fs);
+                fs.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+
+        public bool luuFileCaLam(string tenfile)
+        {
+            try
+            {
+                FileStream fs = new FileStream(tenfile, FileMode.Create);
+                bf.Serialize(fs, dsCaLam);
+                fs.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+
         //Xử Lý Doanh Thu 
         public List<CMatHang> layDSDoanhThu()
         {

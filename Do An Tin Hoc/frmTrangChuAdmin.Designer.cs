@@ -33,6 +33,7 @@
             this.btnKho = new System.Windows.Forms.Button();
             this.btnDoanhSo = new System.Windows.Forms.Button();
             this.btnBanHang = new System.Windows.Forms.Button();
+            this.btnCaLam = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -90,11 +91,23 @@
             this.btnBanHang.UseVisualStyleBackColor = true;
             this.btnBanHang.Click += new System.EventHandler(this.btnBanHang_Click);
             // 
+            // btnCaLam
+            // 
+            this.btnCaLam.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCaLam.Location = new System.Drawing.Point(323, 252);
+            this.btnCaLam.Name = "btnCaLam";
+            this.btnCaLam.Size = new System.Drawing.Size(151, 79);
+            this.btnCaLam.TabIndex = 1;
+            this.btnCaLam.Text = "Ca Làm";
+            this.btnCaLam.UseVisualStyleBackColor = true;
+            this.btnCaLam.Click += new System.EventHandler(this.btnCaLam_Click);
+            // 
             // frmTrangChuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCaLam);
             this.Controls.Add(this.btnKho);
             this.Controls.Add(this.btnBanHang);
             this.Controls.Add(this.btnDoanhSo);
@@ -115,5 +128,6 @@
         private System.Windows.Forms.Button btnKho;
         private System.Windows.Forms.Button btnDoanhSo;
         private System.Windows.Forms.Button btnBanHang;
+        private System.Windows.Forms.Button btnCaLam;
     }
 }
