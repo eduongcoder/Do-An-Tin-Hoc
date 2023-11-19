@@ -24,8 +24,7 @@ namespace Do_An_Tin_Hoc
        
         private void KhoVaNhapKho_Load(object sender, EventArgs e)
         {
-            //CTaiKhoan.getTK(taiKhoan.LoaiTK)
-            //CTaiKhoan.getTK(true);
+
             ConfigButton(CTaiKhoan.getTK());
             dgv.ReadOnly = true;
             

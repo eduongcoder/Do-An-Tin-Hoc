@@ -14,10 +14,7 @@ namespace Do_An_Tin_Hoc
         private bool loaiTK;
 
         private static bool tk;
-        public void Test()
-        {
-            Console.WriteLine("HEHE");
-        }
+
         public static bool getTK()
         {
             return tk;

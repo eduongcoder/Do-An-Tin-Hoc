@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CCaLam.cs" />
     <Compile Include="CGioHang.cs" />
     <Compile Include="CMatHang.cs" />
     <Compile Include="CNhanSu.cs" />

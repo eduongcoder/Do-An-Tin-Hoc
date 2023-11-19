@@ -66,7 +66,10 @@ namespace Do_An_Tin_Hoc
 
         private void btnCaLam_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            frmCaLamAdmin frmCaLamAdmin = new frmCaLamAdmin();
+            frmCaLamAdmin.ShowDialog();
+            this.Show();
         }
     }
 }

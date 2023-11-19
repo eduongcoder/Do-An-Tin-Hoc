@@ -15,21 +15,55 @@ namespace Do_An_Tin_Hoc
         private Dictionary<string,CMatHang> dsMatHang = new Dictionary<string,CMatHang>();
         private Dictionary<string,CNhanSu> dsNhanSu = new Dictionary<string,CNhanSu>();
         private static List<CMatHang> dsDoanhThu = new List<CMatHang>();
-        private List<CNhanSu> dsCaLam = new List<CNhanSu>();
+        private List<CCaLam> dsCaLam = new List<CCaLam>();
 
+        private static DateTime ngayLam;
         //Xử Lý Ca làm
 
-        public List<CNhanSu> layDsCaLam()
+        public void SetNgayLam(DateTime dateTime)
+        {
+            ngayLam=dateTime;
+        }
+        public DateTime GetNgayLam()
+        {
+           return ngayLam;
+        }
+        public List<CCaLam> layDsCaLam()
         {
             return dsCaLam.ToList();
         }
 
+        public void ThemCaLam(CCaLam caLam)
+        {
+            dsCaLam.Add(caLam);
+        }
+        public void XoaCaLam(CCaLam caLam)
+        {
+           dsCaLam.Remove(caLam);
+            
+        }
+
+        public CCaLam TimTrung(CCaLam caLam)
+        {
+           for(int i=0;i<dsCaLam.Count;i++)
+           {
+                if (dsCaLam[i].NhanVien==caLam.NhanVien && dsCaLam[i].CaLam == caLam.CaLam && CompareDateTime(dsCaLam[i].NgayLam,caLam.NgayLam))
+                {
+                    return dsCaLam[i];
+                }
+           }
+           return null;
+        }
+        public bool CompareDateTime(DateTime dateTime1, DateTime dateTime2)
+        {
+            return dateTime1.Year == dateTime2.Year && dateTime1.Month == dateTime2.Month && dateTime1.Day == dateTime2.Day;
+        }
         public bool docFileCaLam(string tenfile)
         {
             try
             {
                 FileStream fs = new FileStream(tenfile, FileMode.Open);
-                dsCaLam = (List<CNhanSu>)bf.Deserialize(fs);
+                dsCaLam = (List<CCaLam>)bf.Deserialize(fs);
                 fs.Close();
                 return true;
             }

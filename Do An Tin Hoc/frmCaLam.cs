@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 namespace Do_An_Tin_Hoc
 {
     public partial class frmCaLamNV : Form
     {
+        private readonly CXuLy xuLy = new CXuLy();
         private List<List<Button>> matrix;
 
         public List<List<Button>> Matrix { get => matrix; set => matrix = value; }
@@ -59,7 +61,20 @@ namespace Do_An_Tin_Hoc
             }
             else
             {
-                MessageBox.Show("Hehe");
+                DateTime temp = DateTime.Today;
+                string a = (sender as Button).Text;
+                temp.AddDays(int.Parse(a));
+               
+               
+                //dtp.Value = (DateTime)(int.Parse(a));
+              
+                MessageBox.Show( temp.ToString());
+                this.Hide();
+                xuLy.SetNgayLam(dtp.Value);
+                MessageBox.Show(xuLy.GetNgayLam().ToString());
+                frmCaLamAdmin frmCaLamAdmin = new frmCaLamAdmin();
+                frmCaLamAdmin.ShowDialog();
+                this.Show();
             }
             
         }
@@ -108,7 +123,6 @@ namespace Do_An_Tin_Hoc
                 {
                     line++;
                 }
-
                 temp= temp.AddDays(1);
             }
         }
@@ -136,9 +150,10 @@ namespace Do_An_Tin_Hoc
             dtp.Value = dtp.Value.AddMonths(-1);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnToday_Click(object sender, EventArgs e)
         {
             dtp.Value = DateTime.Now;
+
         }
     }
 }
