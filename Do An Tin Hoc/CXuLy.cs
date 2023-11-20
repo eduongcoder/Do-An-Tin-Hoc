@@ -20,11 +20,11 @@ namespace Do_An_Tin_Hoc
         private static DateTime ngayLam;
         //Xử Lý Ca làm
 
-        public void SetNgayLam(DateTime dateTime)
+        public static void SetNgayLam(DateTime dateTime)
         {
             ngayLam=dateTime;
         }
-        public DateTime GetNgayLam()
+        public static DateTime GetNgayLam()
         {
            return ngayLam;
         }
@@ -42,7 +42,16 @@ namespace Do_An_Tin_Hoc
            dsCaLam.Remove(caLam);
             
         }
-
+        public bool CapNhatDiemDanh(CCaLam caLam)
+        {
+            if (TimTrung(caLam) != null)
+            {
+                TimTrung(caLam).DiemDanh = true;
+                return true;
+            }else 
+            { return false; }
+           
+        }
         public CCaLam TimTrung(CCaLam caLam)
         {
            for(int i=0;i<dsCaLam.Count;i++)
@@ -58,6 +67,23 @@ namespace Do_An_Tin_Hoc
         {
             return dateTime1.Year == dateTime2.Year && dateTime1.Month == dateTime2.Month && dateTime1.Day == dateTime2.Day;
         }
+        public CaLam ConvertToCaLam(string ca)
+        {
+            switch (ca)
+            {
+                case "Ca1":
+                    return CaLam.Ca1;
+                case "Ca2":
+                    return CaLam.Ca2;
+                case "Ca3":
+                    return CaLam.Ca3;
+                case "Ca4":
+                    return CaLam.Ca4;
+                default:
+                    return CaLam.koCa;
+            }
+        }
+
         public bool docFileCaLam(string tenfile)
         {
             try

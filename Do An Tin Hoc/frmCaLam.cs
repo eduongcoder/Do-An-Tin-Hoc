@@ -61,17 +61,19 @@ namespace Do_An_Tin_Hoc
             }
             else
             {
-                DateTime temp = DateTime.Today;
-                string a = (sender as Button).Text;
-                temp.AddDays(int.Parse(a));
-               
-               
-                //dtp.Value = (DateTime)(int.Parse(a));
-              
-                MessageBox.Show( temp.ToString());
+                int a = int.Parse((sender as Button).Text);
+                DateTime temp = dtp.Value;
+
+                if (a >= temp.Day)
+                {
+                    temp= temp.AddDays(a-temp.Day);
+                }
+                else
+                {
+                    temp= temp.AddDays(-( temp.Day-a));
+                }
                 this.Hide();
-                xuLy.SetNgayLam(dtp.Value);
-                MessageBox.Show(xuLy.GetNgayLam().ToString());
+                CXuLy.SetNgayLam(temp);
                 frmCaLamAdmin frmCaLamAdmin = new frmCaLamAdmin();
                 frmCaLamAdmin.ShowDialog();
                 this.Show();

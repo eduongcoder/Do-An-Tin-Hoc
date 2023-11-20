@@ -23,10 +23,13 @@ namespace Do_An_Tin_Hoc
 
         private void frmCaLamAdmin_Load(object sender, EventArgs e)
         {
-            if (xuly.docFileCaLam(diaChiCaLam))
-            {
-                
+            if (xuly.docFileCaLam(diaChiCaLam) && CTaiKhoan.getTK()==true)
+            {                
                 HienThi(xuly.layDsCaLam());
+            }
+            else if(xuly.docFileCaLam(diaChiCaLam) && CTaiKhoan.getTK() == false)
+            {
+                HienThi(LocNhanVien(CXuLy.GetNgayLam()));
             }
             else
             {
@@ -35,31 +38,55 @@ namespace Do_An_Tin_Hoc
             xuly.docFileNS(diachi);
             LoadComBoBox();
         }
+
+        private List<CCaLam> LocNhanVien(DateTime dateTime) 
+        {
+            List<CCaLam> temp =new List<CCaLam>();
+            
+            foreach(CCaLam item in xuly.layDsCaLam())
+            {
+                if(xuly.CompareDateTime(item.NgayLam, dateTime)) 
+                { 
+                    temp.Add(item);
+                }
+            }
+            return temp;
+        }
+
         private void HienThi(List<CCaLam> dsCaLam)
         {
             BindingSource bs = new BindingSource();
             bs.DataSource = dsCaLam;
             dgv.DataSource = bs;
-
+            dgv.Columns[3].ReadOnly = true;
         }
 
-        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        //private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    //if ((bool)dgv.Rows[e.RowIndex].Cells[3].Value == false)
+        //    //{
+        //    //    dgv.Rows[e.RowIndex].Cells[3].Value = true;
+        //    //    xuly.luuFileCaLam(diaChiCaLam);
+        //    //}
+        //    //else
+        //    //{
+        //    //    dgv.Rows[e.RowIndex].Cells[3].Value = false;
+        //    //    xuly.luuFileCaLam(diaChiCaLam);
+        //    //}
+        //}
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             CCaLam caLam = new CCaLam();
             caLam.NgayLam = dtpNgayLam.Value;
             caLam.NhanVien = cboNhanVien.Text;
-            if(ConvertToCaLam(cboCaLam.Text)== CaLam.koCa)
+            if(xuly.ConvertToCaLam(cboCaLam.Text)== CaLam.koCa)
             {
                 MessageBox.Show("Lỗi Nhập Ca Làm");
             }
             else
             {
-                caLam.CaLam = ConvertToCaLam(cboCaLam.Text);
+                caLam.CaLam = xuly.ConvertToCaLam(cboCaLam.Text);
                 if (xuly.TimTrung(caLam)==null)
                 {
                     xuly.ThemCaLam(caLam);
@@ -83,22 +110,7 @@ namespace Do_An_Tin_Hoc
             cboCaLam.Items.Add(CaLam.Ca4);
         }
 
-        private CaLam ConvertToCaLam(string ca)
-        {
-            switch (ca)
-            {
-                case "Ca1":
-                    return CaLam.Ca1;                   
-                case "Ca2":
-                    return CaLam.Ca2;
-                case "Ca3":
-                    return CaLam.Ca3;                   
-                case "Ca4":
-                    return CaLam.Ca4;
-                default:
-                    return CaLam.koCa;
-            }
-        }
+   
 
         private void dgv_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -121,7 +133,7 @@ namespace Do_An_Tin_Hoc
             CCaLam caLam = new CCaLam();
             caLam.NgayLam = dtpNgayLam.Value;
             caLam.NhanVien = cboNhanVien.Text;
-            caLam.CaLam = ConvertToCaLam(cboCaLam.Text);
+            caLam.CaLam = xuly.ConvertToCaLam(cboCaLam.Text);
 
             if (xuly.TimTrung(caLam) != null)
             {

@@ -43,7 +43,10 @@ namespace Do_An_Tin_Hoc
 
         private void btnDiemDanh_Click(object sender, EventArgs e)
         {
-
+            frmDiemDanh frmDiemDanh = new frmDiemDanh();
+            this.Hide();
+            frmDiemDanh.ShowDialog();
+            this.Show();
         }
     }
 }
