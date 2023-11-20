@@ -20,7 +20,39 @@ namespace Do_An_Tin_Hoc
 
         private static DateTime ngayLam;
 
+        private static bool dangNhap;
         //Xử Lý Tài Khoản;
+
+        public static void LoadFormDangKy(bool dauvao)
+        {
+            if (dauvao)
+            {
+                dangNhap= true;
+            }
+            else
+            {
+                dangNhap = false;
+            }
+        }
+        public static bool GetDangNhap()
+        {
+            return dangNhap;
+        }
+        public CTaiKhoan TimTK(string tenTK)
+        {
+            if (dsTaiKhoan.ContainsKey(tenTK))
+            {
+                return dsTaiKhoan[tenTK];
+            }
+            else
+            { return null; }
+        }
+        public void SuaTK(CTaiKhoan taiKhoan)
+        {
+            CTaiKhoan temp = TimTK(taiKhoan.Taikhoan);
+           temp.Matkhau = taiKhoan.Matkhau;
+            temp.LoaiTK= taiKhoan.LoaiTK;
+        }
         public List<CTaiKhoan> layDSTaiKhoan()
         {
             return dsTaiKhoan.Values.ToList();

@@ -40,6 +40,7 @@
             this.lst2 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnDangKy = new System.Windows.Forms.Button();
+            this.btnDoiMK = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -158,6 +159,16 @@
             this.btnDangKy.UseVisualStyleBackColor = true;
             this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
             // 
+            // btnDoiMK
+            // 
+            this.btnDoiMK.Location = new System.Drawing.Point(132, 329);
+            this.btnDoiMK.Name = "btnDoiMK";
+            this.btnDoiMK.Size = new System.Drawing.Size(99, 52);
+            this.btnDoiMK.TabIndex = 2;
+            this.btnDoiMK.Text = "Đổi Mật Khẩu";
+            this.btnDoiMK.UseVisualStyleBackColor = true;
+            this.btnDoiMK.Click += new System.EventHandler(this.btnDoiMK_Click);
+            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -167,6 +178,7 @@
             this.Controls.Add(this.lst);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnDangKy);
+            this.Controls.Add(this.btnDoiMK);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnDangNhap);
@@ -196,6 +208,7 @@
         private System.Windows.Forms.ListBox lst2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnDangKy;
+        private System.Windows.Forms.Button btnDoiMK;
     }
 }
 

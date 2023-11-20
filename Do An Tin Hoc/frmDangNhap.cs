@@ -55,7 +55,7 @@ namespace Do_An_Tin_Hoc
                         frmTrangChuAdmin admin = new frmTrangChuAdmin();
                         CTaiKhoan.setTK(xuLy.layDSTaiKhoan()[i].LoaiTK);
                         CTaiKhoan.setTenTK(xuLy.layDSTaiKhoan()[i].Taikhoan);
-                       
+                        MessageBox.Show("Đăng Nhập thành công");
                         admin.ShowDialog();
                         this.Close();                        
                         return true;
@@ -65,7 +65,7 @@ namespace Do_An_Tin_Hoc
                         frmTrangChuNhanVien nhanvien = new frmTrangChuNhanVien();
                         CTaiKhoan.setTK(xuLy.layDSTaiKhoan()[i].LoaiTK);
                         CTaiKhoan.setTenTK(xuLy.layDSTaiKhoan()[i].Taikhoan);
-                       
+                        MessageBox.Show("Đăng Nhập thành công");
                         nhanvien.ShowDialog();
                         this.Close();
                         return true;
@@ -78,7 +78,7 @@ namespace Do_An_Tin_Hoc
         {
             if(KTDangNhap(txtTaiKhoan.Text, txtMatKhau.Text))
             {
-                MessageBox.Show("Đăng Nhập thành công");
+                
             }
             else
             {
@@ -119,16 +119,16 @@ namespace Do_An_Tin_Hoc
         }
         private void lst_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-                if (lst.SelectedItem.ToString() == "Admin")
+            for (int i = 0; i < xuLy.layDSTaiKhoan().Count; i++)
+            {
+                if (lst.SelectedItem.ToString() == xuLy.layDSTaiKhoan()[i].Taikhoan)
                 {
-                    lst2.SelectedItem = lst.Items[0];
+                    lst2.SelectedItem = lst2.Items[i];
                 }
-                else if (lst.SelectedItem.ToString() == "Duong")
-                { 
-                    lst2.SelectedItem = lst.Items[1];
-                }   
+            }
 
+
+          
             
         }
 
@@ -139,30 +139,41 @@ namespace Do_An_Tin_Hoc
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (lst.SelectedItem.ToString() == "Admin")
+            for(int i=0;i< xuLy.layDSTaiKhoan().Count; i++)
             {
-                lst2.SelectedItem = lst2.Items[0];
-                txtTaiKhoan.Text = lst.SelectedItem.ToString();
-                txtMatKhau.Text= lst2.SelectedItem.ToString();
-            }
-            else if (lst.SelectedItem.ToString() == "Duong")
-            {
-                lst2.SelectedItem = lst2.Items[1];
-                txtTaiKhoan.Text = lst.SelectedItem.ToString();
-                txtMatKhau.Text = lst2.SelectedItem.ToString();
+                if (lst.SelectedItem.ToString() == xuLy.layDSTaiKhoan()[i].Taikhoan)
+                {
+                    //lst2.SelectedItem = lst2.Items[i];
+                    txtTaiKhoan.Text = lst.SelectedItem.ToString();
+                    txtMatKhau.Text = lst2.SelectedItem.ToString();
+                }
             }
         }
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
+            CXuLy.LoadFormDangKy(true);
             this.Hide();
             frmDangKy frmDangKy = new frmDangKy();
             frmDangKy.ShowDialog();
             
-           frmDangNhap frmDangNhap = new frmDangNhap();
+            frmDangNhap frmDangNhap = new frmDangNhap();
             frmDangNhap.ShowDialog();
             this.Close();
             
+
+        }
+
+        private void btnDoiMK_Click(object sender, EventArgs e)
+        {
+            CXuLy.LoadFormDangKy(false);
+            this.Hide();
+            frmDangKy frmDangKy = new frmDangKy();
+            frmDangKy.ShowDialog();
+
+            frmDangNhap frmDangNhap = new frmDangNhap();           
+            frmDangNhap.ShowDialog();
+            this.Close();
 
         }
     }
