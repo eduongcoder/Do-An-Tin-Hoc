@@ -14,10 +14,52 @@ namespace Do_An_Tin_Hoc
         private static readonly BinaryFormatter bf = new BinaryFormatter();
         private Dictionary<string,CMatHang> dsMatHang = new Dictionary<string,CMatHang>();
         private Dictionary<string,CNhanSu> dsNhanSu = new Dictionary<string,CNhanSu>();
+        private Dictionary<string,CTaiKhoan> dsTaiKhoan = new Dictionary<string, CTaiKhoan>();
         private static List<CMatHang> dsDoanhThu = new List<CMatHang>();
         private List<CCaLam> dsCaLam = new List<CCaLam>();
 
         private static DateTime ngayLam;
+
+        //Xử Lý Tài Khoản;
+        public List<CTaiKhoan> layDSTaiKhoan()
+        {
+            return dsTaiKhoan.Values.ToList();
+        }
+        public void ThemTaiKoan(CTaiKhoan taiKhoan)
+        {
+            dsTaiKhoan.Add(taiKhoan.Taikhoan,taiKhoan);
+        }
+        public bool docFileTaiKhoan(string tenfile)
+        {
+            try
+            {
+                FileStream fs = new FileStream(tenfile, FileMode.Open);
+                dsTaiKhoan = (Dictionary<string, CTaiKhoan>)bf.Deserialize(fs);
+                fs.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+
+        public bool luuFileTaiKhaon(string tenfile)
+        {
+            try
+            {
+                FileStream fs = new FileStream(tenfile, FileMode.Create);
+                bf.Serialize(fs, dsTaiKhoan);
+                fs.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         //Xử Lý Ca làm
 
         public static void SetNgayLam(DateTime dateTime)
@@ -47,6 +89,7 @@ namespace Do_An_Tin_Hoc
             if (TimTrung(caLam) != null)
             {
                 TimTrung(caLam).DiemDanh = true;
+                TimTrung(caLam).TKDiemDanh = caLam.TKDiemDanh;
                 return true;
             }else 
             { return false; }

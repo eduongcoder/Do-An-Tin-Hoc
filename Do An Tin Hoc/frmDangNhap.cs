@@ -17,6 +17,8 @@ namespace Do_An_Tin_Hoc
     public partial class frmDangNhap : Form
     {
         List<CTaiKhoan> danhsachTK = new List<CTaiKhoan>();
+        private readonly CXuLy xuLy = new CXuLy();
+        private string diachiDSTaiKhoan = "DanhSachTaiKhoan.txt";
         public frmDangNhap()
         {
             InitializeComponent();
@@ -24,56 +26,36 @@ namespace Do_An_Tin_Hoc
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            // ReadFile("DanhSachTaiKhoan.txt");
+            if (xuLy.docFileTaiKhoan(diachiDSTaiKhoan))
+            {
+                LoadTKMK();
+            }
+            else
+            {
+                MessageBox.Show("File rỗng");
+            }
             
-            ReadFile("DanhSachTaiKhoan.txt");
-            LoadTKMK();
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
-        private void ReadFile(string filePath)
-        {
-            if (File.Exists(filePath))
-            {
-                using(StreamReader reader = new StreamReader(filePath))
-                {
-                    //int i = 0;
-                    //string[] strings1 = new string [3];
-                    List<string> strings2 = new List<string>();
-
-                    while (!reader.EndOfStream)
-                    {
-                        string line=reader.ReadLine();
-                       
-                        strings2.Add(line);
-                    }
-                    for (int a = 0; a < strings2.Count; a += 3)
-                    {
-                        bool temp;
-                        if (strings2[a + 2] == "true")
-                        {
-                            temp = true;
-                        }
-                        else temp = false;
-                        CTaiKhoan taikhoan = new CTaiKhoan(strings2[a], strings2[a + 1], temp);
-                        danhsachTK.Add(taikhoan);
-                    }                   
-                }  
-                
-            }
-        }
+      
         public bool KTDangNhap(string tk,string mk)
         {
-            for(int i = 0; i < danhsachTK.Count; i++)
+            for(int i = 0; i < xuLy.layDSTaiKhoan().Count; i++)
             {
-                if (tk == danhsachTK[i].Taikhoan && mk == danhsachTK[i].Matkhau)
+                if (tk == xuLy.layDSTaiKhoan()[i].Taikhoan && mk == xuLy.layDSTaiKhoan()[i].Matkhau)
                 {
-                    if (danhsachTK[i].LoaiTK)
+                    if (xuLy.layDSTaiKhoan()[i].LoaiTK)
                     {
                         this.Hide();
                         frmTrangChuAdmin admin = new frmTrangChuAdmin();
-                        CTaiKhoan.setTK(danhsachTK[i].LoaiTK);
+                        CTaiKhoan.setTK(xuLy.layDSTaiKhoan()[i].LoaiTK);
+                        CTaiKhoan.setTenTK(xuLy.layDSTaiKhoan()[i].Taikhoan);
+                       
                         admin.ShowDialog();
                         this.Close();                        
                         return true;
@@ -81,7 +63,9 @@ namespace Do_An_Tin_Hoc
                     {
                         this.Hide();
                         frmTrangChuNhanVien nhanvien = new frmTrangChuNhanVien();
-                        CTaiKhoan.setTK(danhsachTK[i].LoaiTK);
+                        CTaiKhoan.setTK(xuLy.layDSTaiKhoan()[i].LoaiTK);
+                        CTaiKhoan.setTenTK(xuLy.layDSTaiKhoan()[i].Taikhoan);
+                       
                         nhanvien.ShowDialog();
                         this.Close();
                         return true;
@@ -127,10 +111,10 @@ namespace Do_An_Tin_Hoc
         }
         public void LoadTKMK()
         {
-            for (int i = 0; i < danhsachTK.Count; i++)
+            for (int i = 0; i < xuLy.layDSTaiKhoan().Count; i++)
             {
-                lst.Items.Add(danhsachTK[i].Taikhoan);
-                lst2.Items.Add(danhsachTK[i].Matkhau);
+                lst.Items.Add(xuLy.layDSTaiKhoan()[i].Taikhoan);
+                lst2.Items.Add(xuLy.layDSTaiKhoan()[i].Matkhau);
             }
         }
         private void lst_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,6 +128,7 @@ namespace Do_An_Tin_Hoc
                 { 
                     lst2.SelectedItem = lst.Items[1];
                 }   
+
             
         }
 
@@ -166,6 +151,19 @@ namespace Do_An_Tin_Hoc
                 txtTaiKhoan.Text = lst.SelectedItem.ToString();
                 txtMatKhau.Text = lst2.SelectedItem.ToString();
             }
+        }
+
+        private void btnDangKy_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDangKy frmDangKy = new frmDangKy();
+            frmDangKy.ShowDialog();
+            
+           frmDangNhap frmDangNhap = new frmDangNhap();
+            frmDangNhap.ShowDialog();
+            this.Close();
+            
+
         }
     }
 }

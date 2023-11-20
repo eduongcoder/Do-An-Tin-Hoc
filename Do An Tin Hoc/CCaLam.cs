@@ -19,7 +19,7 @@ namespace Do_An_Tin_Hoc
         public string NhanVien { get => m_NhanVien; set => m_NhanVien = value; }
         public CaLam CaLam { get => m_CaLam; set => m_CaLam = value; }
         public bool DiemDanh { get => m_DiemDanh; set=> m_DiemDanh = value; }
-        public string TkDiemDanh { get => m_TkDiemDanh; set => m_TkDiemDanh = value; }
+        public string TKDiemDanh { get => m_TkDiemDanh; set => m_TkDiemDanh = value; }
 
         public CCaLam()
         {
@@ -27,7 +27,7 @@ namespace Do_An_Tin_Hoc
             NhanVien = "";
             CaLam = CaLam.Ca1;
             DiemDanh = false;
-            TkDiemDanh = "";
+            TKDiemDanh = "";
         }
         public CCaLam(DateTime date,string nhanVien,CaLam caLam,bool diemDanh,string tkDiemDanh)
         {
@@ -35,7 +35,7 @@ namespace Do_An_Tin_Hoc
             NhanVien = nhanVien;
             CaLam = caLam;
             DiemDanh= diemDanh;
-            TkDiemDanh= tkDiemDanh;
+            TKDiemDanh= tkDiemDanh;
         }
     }
 }

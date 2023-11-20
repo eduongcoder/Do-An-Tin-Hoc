@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Do_An_Tin_Hoc
 {
+    [Serializable]
     internal class CTaiKhoan
     {
         private string taiKhoan;
@@ -14,7 +15,16 @@ namespace Do_An_Tin_Hoc
         private bool loaiTK;
 
         private static bool tk;
+        private static string tenTK;
 
+        public static string getTenTK()
+        {
+            return tenTK;
+        }
+        public static void setTenTK(string tentk)
+        {
+            tenTK = tentk;
+        }
         public static bool getTK()
         {
             return tk;

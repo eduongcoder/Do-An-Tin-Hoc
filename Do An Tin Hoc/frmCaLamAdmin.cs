@@ -23,6 +23,8 @@ namespace Do_An_Tin_Hoc
 
         private void frmCaLamAdmin_Load(object sender, EventArgs e)
         {
+            ConfigButton(CTaiKhoan.getTK());
+
             if (xuly.docFileCaLam(diaChiCaLam) && CTaiKhoan.getTK()==true)
             {                
                 HienThi(xuly.layDsCaLam());
@@ -60,21 +62,6 @@ namespace Do_An_Tin_Hoc
             dgv.DataSource = bs;
             dgv.Columns[3].ReadOnly = true;
         }
-
-        //private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    //if ((bool)dgv.Rows[e.RowIndex].Cells[3].Value == false)
-        //    //{
-        //    //    dgv.Rows[e.RowIndex].Cells[3].Value = true;
-        //    //    xuly.luuFileCaLam(diaChiCaLam);
-        //    //}
-        //    //else
-        //    //{
-        //    //    dgv.Rows[e.RowIndex].Cells[3].Value = false;
-        //    //    xuly.luuFileCaLam(diaChiCaLam);
-        //    //}
-        //}
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             CCaLam caLam = new CCaLam();
@@ -97,6 +84,19 @@ namespace Do_An_Tin_Hoc
             }
            
             xuly.luuFileCaLam(diaChiCaLam);
+        }
+        private void ConfigButton(bool loaitk)
+        {
+            if (!loaitk)
+            {
+              btnThem.Visible = false;
+              btnXoa.Visible = false;
+            }
+            else
+            {
+                btnThem.Visible = true;
+                btnXoa.Visible = true;
+            }
         }
         private void LoadComBoBox()
         {

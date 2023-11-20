@@ -20,3 +20,4 @@ C:\Users\Duong\OneDrive\Desktop\Do An Tin Hoc\Do An Tin Hoc\obj\Debug\Do_An_Tin_
 C:\Users\Duong\OneDrive\Desktop\Do An Tin Hoc\Do An Tin Hoc\obj\Debug\Do_An_Tin_Hoc.frmCaLamNV.resources
 C:\Users\Duong\OneDrive\Desktop\Do An Tin Hoc\Do An Tin Hoc\obj\Debug\Do_An_Tin_Hoc.frmCaLamAdmin.resources
 C:\Users\Duong\OneDrive\Desktop\Do An Tin Hoc\Do An Tin Hoc\obj\Debug\Do_An_Tin_Hoc.frmDiemDanh.resources
+C:\Users\Duong\OneDrive\Desktop\Do An Tin Hoc\Do An Tin Hoc\obj\Debug\Do_An_Tin_Hoc.frmDangKy.resources

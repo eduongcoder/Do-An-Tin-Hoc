@@ -39,6 +39,7 @@
             this.lst = new System.Windows.Forms.ListBox();
             this.lst2 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnDangKy = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,13 +140,23 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(564, 329);
+            this.button1.Location = new System.Drawing.Point(688, 329);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 52);
             this.button1.TabIndex = 2;
             this.button1.Text = "Điền nhanh";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnDangKy
+            // 
+            this.btnDangKy.Location = new System.Drawing.Point(533, 329);
+            this.btnDangKy.Name = "btnDangKy";
+            this.btnDangKy.Size = new System.Drawing.Size(112, 52);
+            this.btnDangKy.TabIndex = 2;
+            this.btnDangKy.Text = "Tạo Tài Khoản";
+            this.btnDangKy.UseVisualStyleBackColor = true;
+            this.btnDangKy.Click += new System.EventHandler(this.btnDangKy_Click);
             // 
             // frmDangNhap
             // 
@@ -155,6 +166,7 @@
             this.Controls.Add(this.lst2);
             this.Controls.Add(this.lst);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnDangKy);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnDangNhap);
@@ -183,6 +195,7 @@
         private System.Windows.Forms.ListBox lst;
         private System.Windows.Forms.ListBox lst2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDangKy;
     }
 }
 
