@@ -53,7 +53,7 @@ namespace Do_An_Tin_Hoc
             bs.DataSource = danhSach.Values;
             dgv.DataSource = bs;
             dgv.Columns[3].Visible = false;
-           
+            dgv.Columns[4].Visible = false;
         }
         private bool Tim(string tenMH,Dictionary<string,CMatHang> danhSach)
         {
@@ -66,7 +66,7 @@ namespace Do_An_Tin_Hoc
                 return true;
             }
         }
-        private Dictionary<string, CMatHang> dsMatHang = new Dictionary<string, CMatHang>();
+
 
 
         private Dictionary<string, CMatHang> dsChonMua = new Dictionary<string, CMatHang>();
@@ -74,16 +74,25 @@ namespace Do_An_Tin_Hoc
         {
             if (!Tim(cboTenMatHang.SelectedItem.ToString(), xuLy.GetDSMH()) && Tim(cboTenMatHang.SelectedItem.ToString(), dsChonMua))
             {
-                int tongtien = Convert.ToInt32(txtGiaTien.Text) * Convert.ToInt32(txtSoLuong.Text);
-                CMatHang matHang = new CMatHang(cboTenMatHang.SelectedItem.ToString(), tongtien, Convert.ToInt32(txtSoLuong.Text), false);
-                dsChonMua.Add(matHang.m_TenMatHang, matHang);
+               
+                try
+                {
+                    int tongtien = 0;
+                    tongtien = Convert.ToInt32(txtGiaTien.Text) * Convert.ToInt32(txtSoLuong.Text);
+                    CMatHang matHang = new CMatHang(cboTenMatHang.SelectedItem.ToString(), tongtien, Convert.ToInt32(txtSoLuong.Text), false);
+                    dsChonMua.Add(matHang.m_TenMatHang, matHang);
 
-                CGioHang giohang = new CGioHang(cboTenMatHang.Text, tongtien, int.Parse(txtSoLuong.Text));
-                CGioHang.themHang(giohang); //cập nhật dữ liệu cho form Thanh Toán
+                    CGioHang giohang = new CGioHang(cboTenMatHang.Text, tongtien, int.Parse(txtSoLuong.Text));
+                    CGioHang.themHang(giohang); //cập nhật dữ liệu cho form Thanh Toán
 
-                CapNhatKho();
+                    CapNhatKho();
 
-                HienThi(dsChonMua);
+                    HienThi(dsChonMua);
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("Bạn chưa nhập số lượng");
+                }            
             }
             else
             {
@@ -100,24 +109,38 @@ namespace Do_An_Tin_Hoc
       
         private void btnXoaHang_Click(object sender, EventArgs e)
         {
-            dsChonMua.Remove(cboTenMatHang.Text);
-            CGioHang.XoaHang(CGioHang.dsGioHang[cboTenMatHang.Text]);
-            HienThi(dsChonMua);
+            if (xuLy.TimMatHang(cboTenMatHang.Text) != null&& dgv.RowCount>1)
+            {
+                dsChonMua.Remove(cboTenMatHang.Text);
+                
+                CGioHang.XoaHang(CGioHang.dsGioHang[cboTenMatHang.Text]);
+                HienThi(dsChonMua);
+            }
+            else if(dgv.RowCount ==1)
+            {
+                dsChonMua.Remove(cboTenMatHang.Text);
+
+                CGioHang.XoaHang(CGioHang.dsGioHang[cboTenMatHang.Text]);
+               // dgv.Rows[0].SetValues(null, null,null );
+                dgv.Rows.Clear();
+
+            }          
         }
 
         private void dgv_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                if (dgv.RowCount > 0 && dgv.Rows[e.RowIndex].Cells[0].Value != null)
-                {
-                    cboTenMatHang.Text = dgv.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    txtGiaTien.Text = xuLy.Tim(cboTenMatHang.Text).m_GiaTien.ToString();
-                    txtSoLuong.Text = dgv.Rows[e.RowIndex].Cells[2].Value.ToString();
-                }
-            }
-            catch { }
+          
+            if (dgv.RowCount > 0 && dgv.Rows[e.RowIndex].Cells[0].Value != null)
+            {       
            
+                cboTenMatHang.Text = dgv.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtGiaTien.Text = xuLy.TimMatHang(cboTenMatHang.Text).m_GiaTien.ToString();
+                txtSoLuong.Text = dgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+            }
+            else
+            {
+                dgv.Rows.Clear();
+            }
         }
 
         private void btnLenDon_Click(object sender, EventArgs e)
@@ -133,6 +156,7 @@ namespace Do_An_Tin_Hoc
                 if ((xuLy.GetDSMH()[cboTenMatHang.Text].m_SoLuong - int.Parse(txtSoLuong.Text)) < 0 && (int.Parse(txtSoLuong.Text)) > 0)
                 {
                     MessageBox.Show("Không đủ số lượng\n Chỉ còn" + xuLy.GetDSMH()[cboTenMatHang.Text].m_SoLuong);
+                    txtSoLuong.Text =string.Empty;
                 }
             }catch { }
             

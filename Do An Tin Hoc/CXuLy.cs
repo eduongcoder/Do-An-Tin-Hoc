@@ -252,7 +252,7 @@ namespace Do_An_Tin_Hoc
         {
             return dsMatHang;
         }
-        public CMatHang Tim(string ma)
+        public CMatHang TimMatHang(string ma)
         {
             if (dsMatHang.ContainsKey(ma))
             {

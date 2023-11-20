@@ -47,7 +47,7 @@ namespace Do_An_Tin_Hoc
                 string ten = item.SubItems[0].Text;
                 int soLuong = int.Parse(item.SubItems[1].Text);
                 int giaTien = int.Parse(item.SubItems[2].Text);
-                CMatHang matHang = xuLy.Tim(item.Text);
+                CMatHang matHang = xuLy.TimMatHang(item.Text);
                 matHang.m_SoLuong -= int.Parse(item.SubItems[1].Text);
 
                 CMatHang temp =new CMatHang(ten, giaTien, soLuong, false);

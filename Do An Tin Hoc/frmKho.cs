@@ -76,7 +76,7 @@ namespace Do_An_Tin_Hoc
        
         private void btnThemHang_Click(object sender, EventArgs e)
         {
-            if (xuLy.Tim(txtMH.Text)==null)
+            if (xuLy.TimMatHang(txtMH.Text)==null)
             {
                 CMatHang matHang = new CMatHang();
                 matHang.m_TenMatHang = txtMH.Text;
@@ -119,9 +119,9 @@ namespace Do_An_Tin_Hoc
 
         private void btnXoaHang_Click(object sender, EventArgs e)
         {
-            if (xuLy.Tim(txtMH.Text) != null)
+            if (xuLy.TimMatHang(txtMH.Text) != null)
             {
-                xuLy.Xoa(xuLy.Tim(txtMH.Text));
+                xuLy.Xoa(xuLy.TimMatHang(txtMH.Text));
                 HienThi(xuLy.layDSMatHang());
                 xuLy.luuFile(diachi);
             }

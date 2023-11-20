@@ -55,9 +55,9 @@ namespace Do_An_Tin_Hoc
                         frmTrangChuAdmin admin = new frmTrangChuAdmin();
                         CTaiKhoan.setTK(xuLy.layDSTaiKhoan()[i].LoaiTK);
                         CTaiKhoan.setTenTK(xuLy.layDSTaiKhoan()[i].Taikhoan);
-                        MessageBox.Show("Đăng Nhập thành công");
+                        //MessageBox.Show("Đăng Nhập thành công");
                         admin.ShowDialog();
-                        this.Close();                        
+                        this.Show();                        
                         return true;
                     }else
                     {
@@ -65,9 +65,9 @@ namespace Do_An_Tin_Hoc
                         frmTrangChuNhanVien nhanvien = new frmTrangChuNhanVien();
                         CTaiKhoan.setTK(xuLy.layDSTaiKhoan()[i].LoaiTK);
                         CTaiKhoan.setTenTK(xuLy.layDSTaiKhoan()[i].Taikhoan);
-                        MessageBox.Show("Đăng Nhập thành công");
+                        //MessageBox.Show("Đăng Nhập thành công");
                         nhanvien.ShowDialog();
-                        this.Close();
+                        this.Show();
                         return true;
                     }                   
                 }

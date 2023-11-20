@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnXoaHang = new System.Windows.Forms.Button();
             this.btnThemHang = new System.Windows.Forms.Button();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
@@ -39,9 +42,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtGiaTien = new System.Windows.Forms.TextBox();
             this.btnLenDon = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,12 +55,40 @@
             this.dgv.Location = new System.Drawing.Point(3, 191);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
+            this.dgv.ReadOnly = true;
             this.dgv.RowHeadersWidth = 50;
             this.dgv.RowTemplate.Height = 24;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(570, 230);
             this.dgv.TabIndex = 25;
             this.dgv.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_RowEnter);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "m_TenMatHang";
+            this.Column1.HeaderText = "Tên Mặt Hàng";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "m_SoLuong";
+            this.Column3.HeaderText = "Số Lượng";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "m_GiaTien";
+            this.Column2.HeaderText = "Giá Tiền";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
             // 
             // btnXoaHang
             // 
@@ -157,30 +185,6 @@
             this.btnLenDon.Text = "Lên Đơn";
             this.btnLenDon.UseVisualStyleBackColor = true;
             this.btnLenDon.Click += new System.EventHandler(this.btnLenDon_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "m_TenMatHang";
-            this.Column1.HeaderText = "Tên Mặt Hàng";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "m_SoLuong";
-            this.Column3.HeaderText = "Số Lượng";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "m_GiaTien";
-            this.Column2.HeaderText = "Giá Tiền";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
             // 
             // frmBanHang
             // 

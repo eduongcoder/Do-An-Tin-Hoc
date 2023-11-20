@@ -49,7 +49,7 @@ namespace Do_An_Tin_Hoc
                 {
                     if((bool)dgv.Rows[i].Cells[5].Value == true)
                     {
-                        CMatHang mathang = xuLy.Tim(dgv.Rows[i].Cells[2].Value.ToString());
+                        CMatHang mathang = xuLy.TimMatHang(dgv.Rows[i].Cells[2].Value.ToString());
                         mathang.m_SoLuong += int.Parse(dgv.Rows[i].Cells[0].Value.ToString());
                         xuLy.Sua(mathang);
                         dgv.Rows[i].Cells[5].Value = false;
@@ -130,7 +130,7 @@ namespace Do_An_Tin_Hoc
         {
             try
             {
-                if (xuLy.Tim(cboTenMatHang.Text) != null)
+                if (xuLy.TimMatHang(cboTenMatHang.Text) != null)
                 {
                     for (int i = 0; i < dgv.RowCount; i++)
                     {
