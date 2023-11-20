@@ -63,11 +63,11 @@
     <Compile Include="frmCaLamAdmin.Designer.cs">
       <DependentUpon>frmCaLamAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDangKy.cs">
+    <Compile Include="frmDKvaDoiMK.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDangKy.Designer.cs">
-      <DependentUpon>frmDangKy.cs</DependentUpon>
+    <Compile Include="frmDKvaDoiMK.Designer.cs">
+      <DependentUpon>frmDKvaDoiMK.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
@@ -117,6 +117,12 @@
     <Compile Include="frmThanhToan.Designer.cs">
       <DependentUpon>frmThanhToan.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmXoaTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXoaTaiKhoan.Designer.cs">
+      <DependentUpon>frmXoaTaiKhoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CTaiKhoan.cs" />
@@ -138,8 +144,8 @@
     <EmbeddedResource Include="frmCaLamAdmin.resx">
       <DependentUpon>frmCaLamAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDangKy.resx">
-      <DependentUpon>frmDangKy.cs</DependentUpon>
+    <EmbeddedResource Include="frmDKvaDoiMK.resx">
+      <DependentUpon>frmDKvaDoiMK.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThanhToan.resx">
       <DependentUpon>frmThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXoaTaiKhoan.resx">
+      <DependentUpon>frmXoaTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

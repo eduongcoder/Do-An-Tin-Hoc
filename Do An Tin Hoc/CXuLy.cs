@@ -61,6 +61,10 @@ namespace Do_An_Tin_Hoc
         {
             dsTaiKhoan.Add(taiKhoan.Taikhoan,taiKhoan);
         }
+        public void XoaTaiKoan(string tenTK)
+        {
+            dsTaiKhoan.Remove(tenTK);
+        }
         public bool docFileTaiKhoan(string tenfile)
         {
             try
@@ -77,7 +81,7 @@ namespace Do_An_Tin_Hoc
         }
 
 
-        public bool luuFileTaiKhaon(string tenfile)
+        public bool luuFileTaiKhoan(string tenfile)
         {
             try
             {

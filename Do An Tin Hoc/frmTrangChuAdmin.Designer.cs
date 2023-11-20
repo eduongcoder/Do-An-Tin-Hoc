@@ -34,6 +34,7 @@
             this.btnDoanhSo = new System.Windows.Forms.Button();
             this.btnBanHang = new System.Windows.Forms.Button();
             this.btnCaLam = new System.Windows.Forms.Button();
+            this.btnXoaTK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -94,7 +95,7 @@
             // btnCaLam
             // 
             this.btnCaLam.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCaLam.Location = new System.Drawing.Point(323, 252);
+            this.btnCaLam.Location = new System.Drawing.Point(326, 186);
             this.btnCaLam.Name = "btnCaLam";
             this.btnCaLam.Size = new System.Drawing.Size(151, 79);
             this.btnCaLam.TabIndex = 1;
@@ -102,11 +103,23 @@
             this.btnCaLam.UseVisualStyleBackColor = true;
             this.btnCaLam.Click += new System.EventHandler(this.btnCaLam_Click);
             // 
+            // btnXoaTK
+            // 
+            this.btnXoaTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaTK.Location = new System.Drawing.Point(326, 291);
+            this.btnXoaTK.Name = "btnXoaTK";
+            this.btnXoaTK.Size = new System.Drawing.Size(151, 79);
+            this.btnXoaTK.TabIndex = 1;
+            this.btnXoaTK.Text = "Xóa Tài Khoản";
+            this.btnXoaTK.UseVisualStyleBackColor = true;
+            this.btnXoaTK.Click += new System.EventHandler(this.btnXoaTK_Click);
+            // 
             // frmTrangChuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnXoaTK);
             this.Controls.Add(this.btnCaLam);
             this.Controls.Add(this.btnKho);
             this.Controls.Add(this.btnBanHang);
@@ -129,5 +142,6 @@
         private System.Windows.Forms.Button btnDoanhSo;
         private System.Windows.Forms.Button btnBanHang;
         private System.Windows.Forms.Button btnCaLam;
+        private System.Windows.Forms.Button btnXoaTK;
     }
 }

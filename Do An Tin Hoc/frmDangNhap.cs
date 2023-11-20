@@ -55,9 +55,13 @@ namespace Do_An_Tin_Hoc
                         frmTrangChuAdmin admin = new frmTrangChuAdmin();
                         CTaiKhoan.setTK(xuLy.layDSTaiKhoan()[i].LoaiTK);
                         CTaiKhoan.setTenTK(xuLy.layDSTaiKhoan()[i].Taikhoan);
-                        //MessageBox.Show("Đăng Nhập thành công");
+                       
                         admin.ShowDialog();
-                        this.Show();                        
+                        frmDangNhap frmDangNhap = new frmDangNhap();
+                        frmDangNhap.ShowDialog();
+                        this.Close();
+                        
+                                               
                         return true;
                     }else
                     {
@@ -65,9 +69,11 @@ namespace Do_An_Tin_Hoc
                         frmTrangChuNhanVien nhanvien = new frmTrangChuNhanVien();
                         CTaiKhoan.setTK(xuLy.layDSTaiKhoan()[i].LoaiTK);
                         CTaiKhoan.setTenTK(xuLy.layDSTaiKhoan()[i].Taikhoan);
-                        //MessageBox.Show("Đăng Nhập thành công");
+                       
                         nhanvien.ShowDialog();
-                        this.Show();
+                        frmDangNhap frmDangNhap = new frmDangNhap();                        
+                        frmDangNhap.ShowDialog();
+                        this.Close();
                         return true;
                     }                   
                 }
@@ -154,7 +160,7 @@ namespace Do_An_Tin_Hoc
         {
             CXuLy.LoadFormDangKy(true);
             this.Hide();
-            frmDangKy frmDangKy = new frmDangKy();
+            frmDKvaDoiMK frmDangKy = new frmDKvaDoiMK();
             frmDangKy.ShowDialog();
             
             frmDangNhap frmDangNhap = new frmDangNhap();
@@ -168,7 +174,7 @@ namespace Do_An_Tin_Hoc
         {
             CXuLy.LoadFormDangKy(false);
             this.Hide();
-            frmDangKy frmDangKy = new frmDangKy();
+            frmDKvaDoiMK frmDangKy = new frmDKvaDoiMK();
             frmDangKy.ShowDialog();
 
             frmDangNhap frmDangNhap = new frmDangNhap();           

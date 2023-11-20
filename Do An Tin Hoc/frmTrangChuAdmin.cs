@@ -71,5 +71,13 @@ namespace Do_An_Tin_Hoc
             frmCaLamAdmin.ShowDialog();
             this.Show();
         }
+
+        private void btnXoaTK_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmXoaTaiKhoan frmXoaTaiKhoan = new frmXoaTaiKhoan();
+            frmXoaTaiKhoan.ShowDialog();
+            this.Show();
+        }
     }
 }

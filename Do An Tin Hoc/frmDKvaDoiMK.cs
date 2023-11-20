@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Do_An_Tin_Hoc
 {
-    public partial class frmDangKy : Form
+    public partial class frmDKvaDoiMK : Form
     {
         private readonly CXuLy xuly = new CXuLy();
         private string diachiDSTaiKhoan = "DanhSachTaiKhoan.txt";
-        public frmDangKy()
+        public frmDKvaDoiMK()
         {
             InitializeComponent();
         }
@@ -41,7 +41,7 @@ namespace Do_An_Tin_Hoc
                     taiKhoan.LoaiTK = choAdmin.Checked;
 
                     xuly.ThemTaiKoan(taiKhoan);
-                    xuly.luuFileTaiKhaon(diachiDSTaiKhoan);
+                    xuly.luuFileTaiKhoan(diachiDSTaiKhoan);
                     MessageBox.Show("Đăng ký thành công!");
                     this.Close();
                 }
@@ -57,7 +57,7 @@ namespace Do_An_Tin_Hoc
                     if (xuly.TimTK(taiKhoan.Taikhoan) != null)
                     {
                         xuly.SuaTK(taiKhoan);
-                        xuly.luuFileTaiKhaon(diachiDSTaiKhoan);
+                        xuly.luuFileTaiKhoan(diachiDSTaiKhoan);
                         MessageBox.Show("Đổi mật khẩu thành công!");
                         this.Close();
                     }

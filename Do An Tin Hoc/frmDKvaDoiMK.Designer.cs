@@ -1,6 +1,6 @@
 ﻿namespace Do_An_Tin_Hoc
 {
-    partial class frmDangKy
+    partial class frmDKvaDoiMK
     {
         /// <summary>
         /// Required designer variable.
