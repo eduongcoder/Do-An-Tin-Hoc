@@ -28,7 +28,9 @@ namespace Do_An_Tin_Hoc
       
         private void frmThanhToan_Load(object sender, EventArgs e)
         {
-           foreach(KeyValuePair<string,CGioHang> mh in CGioHang.dsGioHang)
+            xuLy.docFileDoanhThu(diachi2);
+
+           foreach (KeyValuePair<string,CGioHang> mh in CGioHang.dsGioHang)
             {
                 ListViewItem item = new ListViewItem(CGioHang.dsGioHang[mh.Key].ten.ToString());
                 item.SubItems.Add(CGioHang.dsGioHang[mh.Key].soLuong.ToString());
@@ -64,6 +66,7 @@ namespace Do_An_Tin_Hoc
             CGioHang.dsGioHang.Clear();
             
             MessageBox.Show("Cảm ơn Quý Khách!");
+            this.Close();
         }
 
         private void lst_SelectedIndexChanged_1(object sender, EventArgs e)

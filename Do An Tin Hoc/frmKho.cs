@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -157,6 +158,64 @@ namespace Do_An_Tin_Hoc
             }
             catch { MessageBox.Show("Chưa có mặt hàng này!"); }
            
+        }
+
+        private void txtMH_Validating(object sender, CancelEventArgs e)
+        {
+            string pattern = @"^\p{L}+(?: \p{L}+)*$";
+            if (!Regex.IsMatch(txtMH.Text, pattern))
+            {
+               
+                txtMH.Text = "";
+                e.Cancel = true;
+            }
+        }
+
+        private void txtMH_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSL_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int temp = int.Parse(txtSL.Text);
+                if (temp <=0)
+                {
+                    MessageBox.Show("Số lượng phải lớn hơn hoặc bằng 0!");
+                    txtSL.Text = "0";
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Bạn đã nhập sai!");
+            }
+        }
+
+        private void txtGiaTien_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int temp = int.Parse(txtGiaTien.Text);
+                if (temp <= 0)
+                {
+                    MessageBox.Show("Giá tiền phải không được bé hơn 0!");
+                    txtSL.Text = "";
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Bạn đã nhập sai!");
+            }
+        }
+
+        private void txtMH_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

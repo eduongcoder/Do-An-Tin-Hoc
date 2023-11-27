@@ -77,7 +77,10 @@ namespace Do_An_Tin_Hoc
             this.Hide();
             frmXoaTaiKhoan frmXoaTaiKhoan = new frmXoaTaiKhoan();
             frmXoaTaiKhoan.ShowDialog();
-            this.Show();
+            if (xuly.TimTK(CTaiKhoan.getTenTK()) == null)
+                this.Close();
+            else            
+                this.Show();
         }
     }
 }

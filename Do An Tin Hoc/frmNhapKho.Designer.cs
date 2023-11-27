@@ -38,7 +38,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtTongTien = new System.Windows.Forms.TextBox();
-            this.cboTenMatHang = new System.Windows.Forms.ComboBox();
             this.txtGiaTien = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.bthMuaThem = new System.Windows.Forms.Button();
             this.btnTongTien = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtTenMH = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -152,19 +152,11 @@
             this.txtTongTien.TabIndex = 11;
             this.txtTongTien.TextChanged += new System.EventHandler(this.txtTongTien_TextChanged);
             // 
-            // cboTenMatHang
-            // 
-            this.cboTenMatHang.FormattingEnabled = true;
-            this.cboTenMatHang.Location = new System.Drawing.Point(165, 79);
-            this.cboTenMatHang.Name = "cboTenMatHang";
-            this.cboTenMatHang.Size = new System.Drawing.Size(121, 24);
-            this.cboTenMatHang.TabIndex = 12;
-            this.cboTenMatHang.SelectedIndexChanged += new System.EventHandler(this.cboTenMatHang_SelectedIndexChanged);
-            // 
             // txtGiaTien
             // 
             this.txtGiaTien.Location = new System.Drawing.Point(406, 81);
             this.txtGiaTien.Name = "txtGiaTien";
+            this.txtGiaTien.ReadOnly = true;
             this.txtGiaTien.Size = new System.Drawing.Size(100, 22);
             this.txtGiaTien.TabIndex = 13;
             // 
@@ -174,6 +166,7 @@
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(100, 22);
             this.txtSoLuong.TabIndex = 13;
+            this.txtSoLuong.TextChanged += new System.EventHandler(this.txtSoLuong_TextChanged);
             // 
             // label2
             // 
@@ -231,6 +224,15 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Tổng tiền";
             // 
+            // txtTenMH
+            // 
+            this.txtTenMH.Location = new System.Drawing.Point(157, 81);
+            this.txtTenMH.Name = "txtTenMH";
+            this.txtTenMH.ReadOnly = true;
+            this.txtTenMH.Size = new System.Drawing.Size(100, 22);
+            this.txtTenMH.TabIndex = 13;
+            this.txtTenMH.TextChanged += new System.EventHandler(this.txtTenMH_TextChanged);
+            // 
             // FrmNhapKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -241,8 +243,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSoLuong);
+            this.Controls.Add(this.txtTenMH);
             this.Controls.Add(this.txtGiaTien);
-            this.Controls.Add(this.cboTenMatHang);
             this.Controls.Add(this.txtTongTien);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.btnTongTien);
@@ -264,7 +266,6 @@
         private System.Windows.Forms.Button bthDatHang;
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.TextBox txtTongTien;
-        private System.Windows.Forms.ComboBox cboTenMatHang;
         private System.Windows.Forms.TextBox txtGiaTien;
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.Label label2;
@@ -279,5 +280,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.TextBox txtTenMH;
     }
 }

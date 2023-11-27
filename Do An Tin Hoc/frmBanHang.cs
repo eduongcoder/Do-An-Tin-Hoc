@@ -25,6 +25,7 @@ namespace Do_An_Tin_Hoc
         {
             if (xuLy.docFile(diachi))
                 AddItems();
+            
 
         }
 
@@ -55,48 +56,65 @@ namespace Do_An_Tin_Hoc
             dgv.Columns[3].Visible = false;
             dgv.Columns[4].Visible = false;
         }
-        private bool Tim(string tenMH,Dictionary<string,CMatHang> danhSach)
+        private CMatHang Tim(string tenMH,Dictionary<string,CMatHang> danhSach)
         {
             if (danhSach.ContainsKey(tenMH))
             {
-                return false;
+                return danhSach[tenMH];
             }
             else
             {
-                return true;
+                return null;
             }
         }
-
+        private void Sua(CMatHang mH)
+        {
+            if (dsChonMua.ContainsKey(mH.m_TenMatHang.ToString()))
+            {
+                dsChonMua[mH.m_TenMatHang] = mH;
+            }
+        }
 
 
         private Dictionary<string, CMatHang> dsChonMua = new Dictionary<string, CMatHang>();
         private void btnThemHang_Click(object sender, EventArgs e)
         {
-            if (!Tim(cboTenMatHang.SelectedItem.ToString(), xuLy.GetDSMH()) && Tim(cboTenMatHang.SelectedItem.ToString(), dsChonMua))
+            if (cboTenMatHang.SelectedItem != null)
             {
-               
-                try
+                if (Tim(cboTenMatHang.SelectedItem.ToString(), xuLy.GetDSMH()) !=null&& Tim(cboTenMatHang.SelectedItem.ToString(), dsChonMua)==null)
                 {
-                    int tongtien = 0;
-                    tongtien = Convert.ToInt32(txtGiaTien.Text) * Convert.ToInt32(txtSoLuong.Text);
-                    CMatHang matHang = new CMatHang(cboTenMatHang.SelectedItem.ToString(), tongtien, Convert.ToInt32(txtSoLuong.Text), false);
-                    dsChonMua.Add(matHang.m_TenMatHang, matHang);
 
-                    CGioHang giohang = new CGioHang(cboTenMatHang.Text, tongtien, int.Parse(txtSoLuong.Text));
-                    CGioHang.themHang(giohang); //cập nhật dữ liệu cho form Thanh Toán
+                    try
+                    {
+                        int tongtien = 0;
+                        tongtien = Convert.ToInt32(txtGiaTien.Text) * Convert.ToInt32(txtSoLuong.Text);
+                        CMatHang matHang = new CMatHang(cboTenMatHang.SelectedItem.ToString(), tongtien, Convert.ToInt32(txtSoLuong.Text), false);
+                        dsChonMua.Add(matHang.m_TenMatHang, matHang);
 
-                    CapNhatKho();
+                        CGioHang giohang = new CGioHang(cboTenMatHang.Text, tongtien, int.Parse(txtSoLuong.Text));
+                        CGioHang.themHang(giohang); //cập nhật dữ liệu cho form Thanh Toán
 
-                    HienThi(dsChonMua);
+                        CapNhatKho();
+
+                        HienThi(dsChonMua);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Bạn chưa nhập số lượng");
+                    }
                 }
-                catch(Exception)
+                else
                 {
-                    MessageBox.Show("Bạn chưa nhập số lượng");
-                }            
-            }
+                    CMatHang matHang =Tim(dsChonMua[cboTenMatHang.Text].m_TenMatHang, dsChonMua);
+                    matHang.m_SoLuong = int.Parse(txtSoLuong.Text);
+                    Sua(matHang);
+                    HienThi(dsChonMua);
+
+                }
+            }        
             else
             {
-                MessageBox.Show("Đã có mặt hàng này!");
+                cboTenMatHang.Text = "";
             }
         }
         private void CapNhatKho()
@@ -146,7 +164,13 @@ namespace Do_An_Tin_Hoc
         private void btnLenDon_Click(object sender, EventArgs e)
         {
             frmThanhToan thanhToan = new frmThanhToan();
-            thanhToan.Show(); 
+            thanhToan.ShowDialog();
+            dgv.Rows.Clear();
+            dsChonMua.Clear();
+            
+            cboTenMatHang.Text = "";
+            txtGiaTien.Text = "";
+            txtSoLuong.Text = "";
         }
 
         private void txtSoLuong_TextChanged(object sender, EventArgs e)
@@ -158,7 +182,7 @@ namespace Do_An_Tin_Hoc
                     MessageBox.Show("Không đủ số lượng\n Chỉ còn" + xuLy.GetDSMH()[cboTenMatHang.Text].m_SoLuong);
                     txtSoLuong.Text =string.Empty;
                 }
-            }catch { }
+            }catch (Exception){ txtSoLuong.Text = string.Empty; }
             
         }
     }

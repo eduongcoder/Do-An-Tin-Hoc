@@ -6,8 +6,10 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Do_An_Tin_Hoc
 {
@@ -111,6 +113,36 @@ namespace Do_An_Tin_Hoc
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void txtMNV_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtHoTen_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtHoTen_Validating(object sender, CancelEventArgs e)
+        {
+            string pattern = @"^\p{L}+(?: \p{L}+)*$";
+            if (!Regex.IsMatch(txtHoTen.Text, pattern))
+            {
+                MessageBox.Show("Họ tên nhập lỗi", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtHoTen.Text = "";
+                e.Cancel = true;
+            }
+        }
+
+        private void txtHoTen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow only letters, backspace, and space
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

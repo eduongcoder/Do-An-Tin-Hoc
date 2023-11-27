@@ -24,6 +24,9 @@ namespace Do_An_Tin_Hoc
         {
             xuLy.docFileDoanhThu(diachi2);
             HienThi(xuLy.layDSDoanhThu());
+            cboSapXep.Items.Add("Số Lượng");
+            cboSapXep.Items.Add("Ngày tháng");
+
         }
         private void HienThi(List<CMatHang> maHang)
         {
@@ -42,9 +45,77 @@ namespace Do_An_Tin_Hoc
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            xuLy.XoaDoanhThu();
-            xuLy.luuFileDoanhThu(diachi2);
+            //xuLy.XoaDoanhThu();
+            //xuLy.luuFileDoanhThu(diachi2);
+            //HienThi(xuLy.layDSDoanhThu());
+        }
+        private List<CMatHang> BubbleSortSoLuong( List<CMatHang>  listSoLuong)
+        {
+           for(int i=0;i< listSoLuong.Count;i++)
+            {
+                for (int j=0;j< listSoLuong.Count - i-1;j++)
+                {
+                    if (listSoLuong[j].m_SoLuong > listSoLuong[j + 1].m_SoLuong)
+                    {
+                        CMatHang temp = listSoLuong[j];
+                        listSoLuong[j] = listSoLuong[j+1];
+                        listSoLuong[j+1] = temp;
+                    }
+                }
+            }
+            List<CMatHang> temp1 = listSoLuong;
+            return temp1;
+        }
+        private List<CMatHang> BubbleSortNgay(List<CMatHang> listSoLuong)
+        {
+            for (int i = 0; i < listSoLuong.Count; i++)
+            {
+                for (int j = 0; j < listSoLuong.Count - i - 1; j++)
+                {
+                    if (listSoLuong[j].m_NgayMuaHang > listSoLuong[j + 1].m_NgayMuaHang)
+                    {
+                        CMatHang temp = listSoLuong[j];
+                        listSoLuong[j] = listSoLuong[j + 1];
+                        listSoLuong[j + 1] = temp;
+                    }
+                }
+            }
+            List<CMatHang> temp1 = listSoLuong;
+            return temp1;
+        }
+
+        private void btnSapXep_Click(object sender, EventArgs e)
+        {
+
+            xuLy.datDSDoanhThu(BubbleSortSoLuong(xuLy.layDSDoanhThu()));
             HienThi(xuLy.layDSDoanhThu());
+            xuLy.luuFileDoanhThu(diachi2);
+          
+        }
+
+        private void btnSapXepTheoNgay_Click(object sender, EventArgs e)
+        {
+            xuLy.datDSDoanhThu(BubbleSortNgay(xuLy.layDSDoanhThu()));
+            HienThi(xuLy.layDSDoanhThu());
+            xuLy.luuFileDoanhThu(diachi2);
+        }
+
+        private void cboSapXep_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cboSapXep.SelectedIndex != -1)
+            {
+                if(cboSapXep.Text== "Số Lượng")
+                {
+                    xuLy.datDSDoanhThu(BubbleSortSoLuong(xuLy.layDSDoanhThu()));
+                    HienThi(xuLy.layDSDoanhThu());
+                    xuLy.luuFileDoanhThu(diachi2);
+                }else if(cboSapXep.Text== "Ngày tháng")
+                {
+                    xuLy.datDSDoanhThu(BubbleSortNgay(xuLy.layDSDoanhThu()));
+                    HienThi(xuLy.layDSDoanhThu());
+                    xuLy.luuFileDoanhThu(diachi2);
+                }
+            }
         }
     }
 }

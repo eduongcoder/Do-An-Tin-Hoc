@@ -52,6 +52,7 @@
             this.txtSL.Name = "txtSL";
             this.txtSL.Size = new System.Drawing.Size(179, 22);
             this.txtSL.TabIndex = 11;
+            this.txtSL.TextChanged += new System.EventHandler(this.txtSL_TextChanged);
             // 
             // txtMH
             // 
@@ -59,6 +60,9 @@
             this.txtMH.Name = "txtMH";
             this.txtMH.Size = new System.Drawing.Size(178, 22);
             this.txtMH.TabIndex = 12;
+            this.txtMH.TextChanged += new System.EventHandler(this.txtMH_TextChanged);
+            this.txtMH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMH_KeyPress);
+            this.txtMH.Validating += new System.ComponentModel.CancelEventHandler(this.txtMH_Validating);
             // 
             // label3
             // 
@@ -181,6 +185,7 @@
             this.txtGiaTien.Name = "txtGiaTien";
             this.txtGiaTien.Size = new System.Drawing.Size(179, 22);
             this.txtGiaTien.TabIndex = 11;
+            this.txtGiaTien.TextChanged += new System.EventHandler(this.txtGiaTien_TextChanged);
             // 
             // btnSua
             // 

@@ -29,31 +29,54 @@ namespace Do_An_Tin_Hoc
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            if (choNhanVien.Checked != false || choAdmin.Checked != false)
+            if (rdbAdmin.Checked != false || rdbNhanVien.Checked != false)
             {
                 if (CXuLy.GetDangNhap())
                 {
-
-                    lblTieuDe.Text = "Đăng Ký";
+                   
+                   
                     CTaiKhoan taiKhoan = new CTaiKhoan();
                     taiKhoan.Taikhoan = txtTaiKhoan.Text;
                     taiKhoan.Matkhau = txtMatKhau.Text;
-                    taiKhoan.LoaiTK = choAdmin.Checked;
+                    if(rdbNhanVien.Checked)
+                        taiKhoan.LoaiTK = rdbNhanVien.Checked;
+                    else
+                        taiKhoan.LoaiTK = rdbAdmin.Checked;
 
-                    xuly.ThemTaiKoan(taiKhoan);
-                    xuly.luuFileTaiKhoan(diachiDSTaiKhoan);
-                    MessageBox.Show("Đăng ký thành công!");
-                    this.Close();
+                    if (xuly.TimTK(taiKhoan.Taikhoan) == null)
+                    {
+                        xuly.ThemTaiKoan(taiKhoan);
+                        xuly.luuFileTaiKhoan(diachiDSTaiKhoan);
+                        MessageBox.Show("Đăng ký thành công!");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tài khoản bị trùng\nVui lòng đặt tên tài khoản khác!");
+                        txtTaiKhoan.Text = "";
+                        txtMatKhau.Text = "";
+                    }
+                   
                 }
                 else
                 {
+              
                     lblTieuDe.Text = "Đổi Mật Khẩu";
 
                     CTaiKhoan taiKhoan = new CTaiKhoan();
                     taiKhoan.Taikhoan = txtTaiKhoan.Text;
                     taiKhoan.Matkhau = txtMatKhau.Text;
-                    taiKhoan.LoaiTK = choNhanVien.Checked;
+                    if (rdbNhanVien.Checked)
+                    {                      
+                        taiKhoan.LoaiTK = false;
+                    }
+                    else
+                    {                 
+                        taiKhoan.LoaiTK = true;
+                    }
+                        
 
+                   
                     if (xuly.TimTK(taiKhoan.Taikhoan) != null)
                     {
                         xuly.SuaTK(taiKhoan);
@@ -64,6 +87,8 @@ namespace Do_An_Tin_Hoc
                     else
                     {
                         MessageBox.Show("Không có tài khoản " + taiKhoan.Taikhoan);
+                        txtTaiKhoan.Text = "";
+                        txtMatKhau.Text = "";
                     }
 
                 }
@@ -77,31 +102,22 @@ namespace Do_An_Tin_Hoc
         private void frmDangKy_Load(object sender, EventArgs e)
         {
             xuly.docFileTaiKhoan(diachiDSTaiKhoan);
-        }
-
-        private void choNhanVien_CheckedChanged(object sender, EventArgs e)
-        {
-            if(choNhanVien.Checked==true)
+            if (CXuLy.GetDangNhap())
             {
-                choAdmin.Checked = false;
+                lblTieuDe.Text = "Đăng Ký";
+                btnXacNhan.Text = "Đăng ký";
             }
             else
             {
-                choAdmin.Checked = true;
+                lblTieuDe.Text = "Đổi Mật Khẩu";
+                btnXacNhan.Text = "Đổi mật khẩu";
+               
             }
         }
 
-        private void choAdmin_CheckedChanged(object sender, EventArgs e)
-        {
-            if (choAdmin.Checked == true)
-            {
-                choNhanVien.Checked = false;
-            }
-            else
-            {
-                choNhanVien.Checked = true;
-            }
-        }
+       
+
+   
 
         private void label3_Click(object sender, EventArgs e)
         {

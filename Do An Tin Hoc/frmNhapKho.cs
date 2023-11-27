@@ -67,8 +67,7 @@ namespace Do_An_Tin_Hoc
         {
             int tong = 0;
             tong = int.Parse(giatien) *int.Parse(soluong);
-            return tong.ToString();
-           
+            return tong.ToString();           
         }
 
       
@@ -81,7 +80,7 @@ namespace Do_An_Tin_Hoc
           
             if (dgv.RowCount>0 &&  dgv.Rows[e.RowIndex].Cells[2].Value!=null )
             {
-                cboTenMatHang.Text = dgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtTenMH.Text = dgv.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtGiaTien.Text = dgv.Rows[e.RowIndex].Cells[3].Value.ToString();               
                 txtSoLuong.Text = dgv.Rows[e.RowIndex].Cells[4].Value.ToString();
             }
@@ -94,14 +93,7 @@ namespace Do_An_Tin_Hoc
         }
 
      
-        private void cboTenMatHang_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(cboTenMatHang.SelectedIndex !=-1)
-            {
-                txtGiaTien.Text= xuLy.GetDSMH()[cboTenMatHang.Text].m_GiaTien.ToString();
-               
-            }
-        }
+     
         private Dictionary<string, CMatHang> dsChonMua = new Dictionary<string, CMatHang>();
 
 
@@ -130,14 +122,14 @@ namespace Do_An_Tin_Hoc
         {
             try
             {
-                if (xuLy.TimMatHang(cboTenMatHang.Text) != null)
+                if (xuLy.TimMatHang(txtTenMH.Text) != null)
                 {
                     for (int i = 0; i < dgv.RowCount; i++)
                     {
                        
-                        if (dgv.Rows[i].Cells[2].Value.ToString() == cboTenMatHang.Text)
+                        if (dgv.Rows[i].Cells[2].Value.ToString() == txtTenMH.Text)
                         {
-                            dgv.Rows[i].Cells[0].Value = Convert.ToInt32(txtSoLuong.Text) - Convert.ToInt32(xuLy.GetDSMH()[cboTenMatHang.Text].m_SoLuong);
+                            dgv.Rows[i].Cells[0].Value = Convert.ToInt32(txtSoLuong.Text) - Convert.ToInt32(xuLy.GetDSMH()[txtTenMH.Text].m_SoLuong);
                             break;
                         }
                     }
@@ -163,6 +155,20 @@ namespace Do_An_Tin_Hoc
                 dgv.Rows[e.RowIndex].Cells[1].Value = null;
                 dgv.Rows[e.RowIndex].Cells[5].Value = false;
             }
+        }
+
+        private void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int temp = int.Parse(txtSoLuong.Text);
+            }
+            catch (Exception) { txtSoLuong.Text = string.Empty; }
+        }
+
+        private void txtTenMH_TextChanged(object sender, EventArgs e)
+        {
+            txtGiaTien.Text = xuLy.TimMatHang(txtTenMH.Text).m_GiaTien.ToString();
         }
     }  
 }

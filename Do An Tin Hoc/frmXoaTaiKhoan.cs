@@ -46,8 +46,14 @@ namespace Do_An_Tin_Hoc
         {
             if (MessageBox.Show("Bạn có đồng ý xóa tài khoản?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                
                 xuly.XoaTaiKoan(cboTaiKhoan.Text);
                 xuly.luuFileTaiKhoan(diachiDSTaiKhoan);
+                MessageBox.Show(CTaiKhoan.getTenTK());
+                if (cboTaiKhoan.Text == CTaiKhoan.getTenTK())
+                {
+                    this.Close();
+                }
                 MessageBox.Show("Xóa thành công!");
             }
             

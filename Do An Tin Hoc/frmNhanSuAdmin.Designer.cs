@@ -107,6 +107,7 @@
             this.txtMNV.Name = "txtMNV";
             this.txtMNV.Size = new System.Drawing.Size(178, 22);
             this.txtMNV.TabIndex = 4;
+            this.txtMNV.TextChanged += new System.EventHandler(this.txtMNV_TextChanged);
             // 
             // txtHoTen
             // 
@@ -114,6 +115,8 @@
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(179, 22);
             this.txtHoTen.TabIndex = 4;
+            this.txtHoTen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHoTen_KeyPress);
+            this.txtHoTen.Validating += new System.ComponentModel.CancelEventHandler(this.txtHoTen_Validating);
             // 
             // groupBox1
             // 

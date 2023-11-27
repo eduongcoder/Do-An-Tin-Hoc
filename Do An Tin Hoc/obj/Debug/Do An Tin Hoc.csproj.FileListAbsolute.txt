@@ -2,7 +2,6 @@ C:\Users\Duong\OneDrive\Desktop\Do An Tin Hoc\Do An Tin Hoc\bin\Debug\Do An Tin 
 C:\Users\Duong\OneDrive\Desktop\Do An Tin Hoc\Do An Tin Hoc\bin\Debug\Do An Tin Hoc.exe
 C:\Users\Duong\OneDrive\Desktop\Do An Tin Hoc\Do An Tin Hoc\bin\Debug\Do An Tin Hoc.pdb
 C:\Users\Duong\OneDrive\Desktop\Do An Tin Hoc\Do An Tin Hoc\obj\Debug\Do An Tin Hoc.csproj.AssemblyReference.cache
-C:\Users\Duong\OneDrive\Desktop\Do An Tin Hoc\Do An Tin Hoc\obj\Debug\Do An Tin Hoc.csproj.SuggestedBindingRedirects.cache
 C:\Users\Duong\OneDrive\Desktop\Do An Tin Hoc\Do An Tin Hoc\obj\Debug\Do_An_Tin_Hoc.Properties.Resources.resources
 C:\Users\Duong\OneDrive\Desktop\Do An Tin Hoc\Do An Tin Hoc\obj\Debug\Do An Tin Hoc.csproj.GenerateResource.cache
 C:\Users\Duong\OneDrive\Desktop\Do An Tin Hoc\Do An Tin Hoc\obj\Debug\Do An Tin Hoc.csproj.CoreCompileInputs.cache

@@ -50,7 +50,7 @@ namespace Do_An_Tin_Hoc
         public void SuaTK(CTaiKhoan taiKhoan)
         {
             CTaiKhoan temp = TimTK(taiKhoan.Taikhoan);
-           temp.Matkhau = taiKhoan.Matkhau;
+            temp.Matkhau = taiKhoan.Matkhau;
             temp.LoaiTK= taiKhoan.LoaiTK;
         }
         public List<CTaiKhoan> layDSTaiKhoan()
@@ -200,6 +200,10 @@ namespace Do_An_Tin_Hoc
         {
             return CXuLy.dsDoanhThu.ToList();
         }
+        public void datDSDoanhThu(List<CMatHang> temp)
+        {
+            dsDoanhThu=temp;
+        }
         public void XoaDoanhThu()
         {
             dsDoanhThu.Clear();
@@ -220,7 +224,7 @@ namespace Do_An_Tin_Hoc
         }
         public void ThemMHDT(CMatHang mH)
         {         
-          dsDoanhThu.Add( mH);
+          dsDoanhThu.Add(mH);
         }
        public bool TimMHDT(string tenMH)
         {
