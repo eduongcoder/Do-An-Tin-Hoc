@@ -101,7 +101,7 @@
             this.Controls.Add(this.btnCaLam);
             this.Controls.Add(this.label1);
             this.Name = "frmTrangChuNhanVien";
-            this.Text = "TrangChuNhanVien";
+            this.Text = "Trang Chủ";
             this.ResumeLayout(false);
             this.PerformLayout();
 

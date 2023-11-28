@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnThemNV = new System.Windows.Forms.Button();
-            this.txtMNV = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgv = new System.Windows.Forms.DataGridView();
@@ -43,6 +41,8 @@
             this.btnXoaNV = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.dtp = new System.Windows.Forms.DateTimePicker();
+            this.txtMNV = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
@@ -56,17 +56,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Nhân Sự";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Location = new System.Drawing.Point(42, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 54);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Mã Nhân Viên";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
@@ -100,14 +89,6 @@
             this.btnThemNV.Text = "Thêm Nhân Viên";
             this.btnThemNV.UseVisualStyleBackColor = true;
             this.btnThemNV.Click += new System.EventHandler(this.btnThemNV_Click);
-            // 
-            // txtMNV
-            // 
-            this.txtMNV.Location = new System.Drawing.Point(45, 121);
-            this.txtMNV.Name = "txtMNV";
-            this.txtMNV.Size = new System.Drawing.Size(178, 22);
-            this.txtMNV.TabIndex = 4;
-            this.txtMNV.TextChanged += new System.EventHandler(this.txtMNV_TextChanged);
             // 
             // txtHoTen
             // 
@@ -197,6 +178,27 @@
             this.dtp.Name = "dtp";
             this.dtp.Size = new System.Drawing.Size(155, 22);
             this.dtp.TabIndex = 6;
+            this.dtp.Value = new System.DateTime(2023, 11, 27, 0, 0, 0, 0);
+            // 
+            // txtMNV
+            // 
+            this.txtMNV.Location = new System.Drawing.Point(45, 121);
+            this.txtMNV.Name = "txtMNV";
+            this.txtMNV.ReadOnly = true;
+            this.txtMNV.Size = new System.Drawing.Size(178, 22);
+            this.txtMNV.TabIndex = 4;
+            this.txtMNV.TextChanged += new System.EventHandler(this.txtMNV_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.Location = new System.Drawing.Point(42, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(181, 54);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Mã Nhân Viên";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmNhanSuAdmin
             // 
@@ -215,7 +217,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmNhanSuAdmin";
-            this.Text = "NhanSu";
+            this.Text = "Nhân Sự";
             this.Load += new System.EventHandler(this.NhanSu_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
@@ -227,11 +229,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnThemNV;
-        private System.Windows.Forms.TextBox txtMNV;
         private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnXoaNV;
@@ -241,5 +241,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.DateTimePicker dtp;
+        private System.Windows.Forms.TextBox txtMNV;
+        private System.Windows.Forms.Label label2;
     }
 }

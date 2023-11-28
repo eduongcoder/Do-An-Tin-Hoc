@@ -96,7 +96,7 @@
             this.Controls.Add(this.btnThanhToan);
             this.Controls.Add(this.label1);
             this.Name = "frmThanhToan";
-            this.Text = "frmThanhToan";
+            this.Text = "Thanh Toán";
             this.Load += new System.EventHandler(this.frmThanhToan_Load);
             this.ResumeLayout(false);
 

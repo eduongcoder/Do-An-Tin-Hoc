@@ -108,7 +108,7 @@
             this.Controls.Add(this.cboTaiKhoan);
             this.Controls.Add(this.label1);
             this.Name = "frmXoaTaiKhoan";
-            this.Text = "frmXoaTaiKhoan";
+            this.Text = "Xóa Tài Khoản";
             this.Load += new System.EventHandler(this.frmXoaTaiKhoan_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

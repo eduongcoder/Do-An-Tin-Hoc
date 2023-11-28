@@ -26,11 +26,17 @@ namespace Do_An_Tin_Hoc
             ConfigButton(CTaiKhoan.getTK());
 
             if (xuly.docFileCaLam(diaChiCaLam) && CTaiKhoan.getTK()==true)
-            {                
+            {   
+                dtpNgayLam.Enabled= true;
+                cboCaLam.Enabled= true;
+                cboNhanVien.Enabled= true;
                 HienThi(xuly.layDsCaLam());
             }
             else if(xuly.docFileCaLam(diaChiCaLam) && CTaiKhoan.getTK() == false)
             {
+                dtpNgayLam.Enabled = false;
+                cboCaLam.Enabled = false;
+                cboNhanVien.Enabled = false;
                 HienThi(LocNhanVien(CXuLy.GetNgayLam()));
             }
             else

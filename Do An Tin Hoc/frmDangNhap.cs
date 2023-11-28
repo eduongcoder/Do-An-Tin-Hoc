@@ -37,6 +37,7 @@ namespace Do_An_Tin_Hoc
                 MessageBox.Show("File rỗng");
             }
             
+            
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

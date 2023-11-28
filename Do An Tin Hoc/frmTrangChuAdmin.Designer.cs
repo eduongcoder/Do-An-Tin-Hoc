@@ -127,7 +127,7 @@
             this.Controls.Add(this.btnNhanSu);
             this.Controls.Add(this.label1);
             this.Name = "frmTrangChuAdmin";
-            this.Text = "TrangChu";
+            this.Text = "Trang Chủ";
             this.Load += new System.EventHandler(this.frmTrangChuAdmin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

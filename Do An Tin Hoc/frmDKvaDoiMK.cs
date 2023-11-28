@@ -33,15 +33,15 @@ namespace Do_An_Tin_Hoc
             {
                 if (CXuLy.GetDangNhap())
                 {
-                   
+                   //Đăng Ký
                    
                     CTaiKhoan taiKhoan = new CTaiKhoan();
                     taiKhoan.Taikhoan = txtTaiKhoan.Text;
                     taiKhoan.Matkhau = txtMatKhau.Text;
                     if(rdbNhanVien.Checked)
-                        taiKhoan.LoaiTK = rdbNhanVien.Checked;
+                        taiKhoan.LoaiTK = false;
                     else
-                        taiKhoan.LoaiTK = rdbAdmin.Checked;
+                        taiKhoan.LoaiTK = true;
 
                     if (xuly.TimTK(taiKhoan.Taikhoan) == null)
                     {
@@ -60,7 +60,8 @@ namespace Do_An_Tin_Hoc
                 }
                 else
                 {
-              
+                    //Đổi Mật Khẩu
+
                     lblTieuDe.Text = "Đổi Mật Khẩu";
 
                     CTaiKhoan taiKhoan = new CTaiKhoan();
@@ -104,11 +105,13 @@ namespace Do_An_Tin_Hoc
             xuly.docFileTaiKhoan(diachiDSTaiKhoan);
             if (CXuLy.GetDangNhap())
             {
+                this.Text = "Đăng Ký";
                 lblTieuDe.Text = "Đăng Ký";
                 btnXacNhan.Text = "Đăng ký";
             }
             else
             {
+                this.Text = "Đổi Mật Khẩu";
                 lblTieuDe.Text = "Đổi Mật Khẩu";
                 btnXacNhan.Text = "Đổi mật khẩu";
                

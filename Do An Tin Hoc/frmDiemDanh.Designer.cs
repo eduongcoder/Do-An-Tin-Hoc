@@ -134,7 +134,7 @@
             this.Controls.Add(this.cboTen);
             this.Controls.Add(this.label1);
             this.Name = "frmDiemDanh";
-            this.Text = "frmDiemDanh";
+            this.Text = "Điểm Danh";
             this.Load += new System.EventHandler(this.frmDiemDanh_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

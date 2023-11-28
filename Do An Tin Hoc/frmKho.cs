@@ -38,7 +38,7 @@ namespace Do_An_Tin_Hoc
             {
                 MessageBox.Show("File lỗi!");
             }
-           
+            btnSua.Visible = false;
         }
         private void ConfigButton(bool loaitk)
         {

@@ -39,6 +39,7 @@
             this.cboSapXep = new System.Windows.Forms.ComboBox();
             this.btnSapXep = new System.Windows.Forms.Button();
             this.btnSapXepTheoNgay = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,11 +156,22 @@
             this.btnSapXepTheoNgay.UseVisualStyleBackColor = true;
             this.btnSapXepTheoNgay.Click += new System.EventHandler(this.btnSapXepTheoNgay_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(647, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Sắp Xếp:";
+            // 
             // FrmDoanhThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.cboSapXep);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSapXepTheoNgay);
@@ -168,7 +180,7 @@
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.label1);
             this.Name = "FrmDoanhThu";
-            this.Text = "ds";
+            this.Text = "Doanh Thu";
             this.Load += new System.EventHandler(this.FrmDoanhThu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
@@ -189,5 +201,6 @@
         private System.Windows.Forms.ComboBox cboSapXep;
         private System.Windows.Forms.Button btnSapXep;
         private System.Windows.Forms.Button btnSapXepTheoNgay;
+        private System.Windows.Forms.Label label2;
     }
 }

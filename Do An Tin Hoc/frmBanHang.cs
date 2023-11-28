@@ -133,16 +133,7 @@ namespace Do_An_Tin_Hoc
                 
                 CGioHang.XoaHang(CGioHang.dsGioHang[cboTenMatHang.Text]);
                 HienThi(dsChonMua);
-            }
-            else if(dgv.RowCount ==1)
-            {
-                dsChonMua.Remove(cboTenMatHang.Text);
-
-                CGioHang.XoaHang(CGioHang.dsGioHang[cboTenMatHang.Text]);
-               // dgv.Rows[0].SetValues(null, null,null );
-                dgv.Rows.Clear();
-
-            }          
+            }           
         }
 
         private void dgv_RowEnter(object sender, DataGridViewCellEventArgs e)

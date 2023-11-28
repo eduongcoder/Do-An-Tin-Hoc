@@ -98,7 +98,7 @@
             // 
             // btnXoaHang
             // 
-            this.btnXoaHang.Location = new System.Drawing.Point(581, 374);
+            this.btnXoaHang.Location = new System.Drawing.Point(643, 374);
             this.btnXoaHang.Name = "btnXoaHang";
             this.btnXoaHang.Size = new System.Drawing.Size(102, 56);
             this.btnXoaHang.TabIndex = 14;
@@ -189,12 +189,13 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(696, 374);
+            this.btnSua.Location = new System.Drawing.Point(643, 312);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(102, 56);
             this.btnSua.TabIndex = 14;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Visible = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // frmKho
@@ -216,7 +217,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmKho";
-            this.Text = "KhoVaNhapKho";
+            this.Text = "Kho";
             this.Load += new System.EventHandler(this.KhoVaNhapKho_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);

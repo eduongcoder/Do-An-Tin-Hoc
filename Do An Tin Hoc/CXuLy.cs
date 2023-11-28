@@ -117,8 +117,7 @@ namespace Do_An_Tin_Hoc
         }
         public void XoaCaLam(CCaLam caLam)
         {
-           dsCaLam.Remove(caLam);
-            
+           dsCaLam.Remove(caLam);            
         }
         public bool CapNhatDiemDanh(CCaLam caLam)
         {
@@ -330,6 +329,15 @@ namespace Do_An_Tin_Hoc
             }
             else 
             { return null; }
+        }
+        public bool TimMaTrung(string ma)
+        {
+            if (dsNhanSu.ContainsKey(ma))
+            {
+                return true;
+            }
+            else
+            { return false; }
         }
         public void ThemNS(CNhanSu mH)
         {

@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,7 +59,9 @@ namespace Do_An_Tin_Hoc
                     }
                 }
             }
+            txtTongTien.Text = "";
             xuLy.luuFile(diachi);
+            this.Close();
         }
         
         
@@ -80,6 +83,8 @@ namespace Do_An_Tin_Hoc
           
             if (dgv.RowCount>0 &&  dgv.Rows[e.RowIndex].Cells[2].Value!=null )
             {
+                index = e.RowIndex;
+              
                 txtTenMH.Text = dgv.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtGiaTien.Text = dgv.Rows[e.RowIndex].Cells[3].Value.ToString();               
                 txtSoLuong.Text = dgv.Rows[e.RowIndex].Cells[4].Value.ToString();
@@ -94,7 +99,7 @@ namespace Do_An_Tin_Hoc
 
      
      
-        private Dictionary<string, CMatHang> dsChonMua = new Dictionary<string, CMatHang>();
+        
 
 
         private void HienThi(List<CMatHang> ds)
@@ -124,15 +129,17 @@ namespace Do_An_Tin_Hoc
             {
                 if (xuLy.TimMatHang(txtTenMH.Text) != null)
                 {
-                    for (int i = 0; i < dgv.RowCount; i++)
+                    if (dgv.Rows[index].Cells[2].Value.ToString() == txtTenMH.Text)
                     {
-                       
-                        if (dgv.Rows[i].Cells[2].Value.ToString() == txtTenMH.Text)
+                        int temp = Convert.ToInt32(txtSoLuong.Text) - Convert.ToInt32(xuLy.GetDSMH()[txtTenMH.Text].m_SoLuong);
+                        if(temp>0)
                         {
-                            dgv.Rows[i].Cells[0].Value = Convert.ToInt32(txtSoLuong.Text) - Convert.ToInt32(xuLy.GetDSMH()[txtTenMH.Text].m_SoLuong);
-                            break;
-                        }
+                            dgv.Rows[index].Cells[0].Value = temp;
+                            dgv.Rows[index].Cells[1].Value = TinhTien(dgv.Rows[index].Cells[3].Value.ToString(), dgv.Rows[index].Cells[0].Value.ToString());
+
+                        }                      
                     }
+                    
                 }
             }
             catch
@@ -141,20 +148,30 @@ namespace Do_An_Tin_Hoc
             }
           
         }
-
+        int tong = 0;
+        int index = 0;
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if ((bool)dgv.Rows[e.RowIndex].Cells[5].Value != true && dgv.Rows[e.RowIndex].Cells[0].Value != null)
+           
+            try
             {
-                dgv.Rows[e.RowIndex].Cells[5].Value = true;
-                dgv.Rows[e.RowIndex].Cells[1].Value = TinhTien(dgv.Rows[e.RowIndex].Cells[3].Value.ToString(), dgv.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-            }
-            else
-            {
-                dgv.Rows[e.RowIndex].Cells[1].Value = null;
-                dgv.Rows[e.RowIndex].Cells[5].Value = false;
-            }
+                if ((bool)dgv.Rows[e.RowIndex].Cells[5].Value != true && dgv.Rows[e.RowIndex].Cells[0].Value != null)
+                {
+                    dgv.Rows[e.RowIndex].Cells[5].Value = true;
+                    dgv.Rows[e.RowIndex].Cells[1].Value = TinhTien(dgv.Rows[e.RowIndex].Cells[3].Value.ToString(), dgv.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    tong += int.Parse(dgv.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    txtTongTien.Text = tong.ToString();
+                }
+                else if((bool)dgv.Rows[e.RowIndex].Cells[5].Value == true && dgv.Rows[e.RowIndex].Cells[0].Value != null)
+                {                   
+                    tong -= int.Parse(dgv.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    txtTongTien.Text = tong.ToString();
+                    dgv.Rows[e.RowIndex].Cells[1].Value = null;
+                    dgv.Rows[e.RowIndex].Cells[0].Value = null;
+                    dgv.Rows[e.RowIndex].Cells[5].Value = false;
+                }
+            }catch(Exception) { }
+           
         }
 
         private void txtSoLuong_TextChanged(object sender, EventArgs e)

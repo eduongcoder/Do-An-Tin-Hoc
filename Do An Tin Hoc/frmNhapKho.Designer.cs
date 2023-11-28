@@ -213,6 +213,7 @@
             this.btnTongTien.TabIndex = 9;
             this.btnTongTien.Text = "Tổng tiền";
             this.btnTongTien.UseVisualStyleBackColor = true;
+            this.btnTongTien.Visible = false;
             this.btnTongTien.Click += new System.EventHandler(this.btnTongTien_Click);
             // 
             // label5
@@ -252,7 +253,7 @@
             this.Controls.Add(this.bthDatHang);
             this.Controls.Add(this.label1);
             this.Name = "FrmNhapKho";
-            this.Text = "NhapHang";
+            this.Text = "Nhập Kho";
             this.Load += new System.EventHandler(this.FrmNhapHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);

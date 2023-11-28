@@ -40,8 +40,18 @@ namespace Do_An_Tin_Hoc
         {
             try
             {
+                bool flag=true;
+                string temp;
+                do
+                {
+                    temp= GenerateCode(8);
+                    if (!xuLy.TimMaTrung(temp)){
+                        flag = false;
+                    }
+                }while(flag);
                 
-                CNhanSu nhansu = new CNhanSu(txtMNV.Text, txtHoTen.Text, dtp.Value);
+
+                CNhanSu nhansu = new CNhanSu(temp, txtHoTen.Text, dtp.Value.Date);
                 xuLy.ThemNS(nhansu);
                
                 HienNhanSu(xuLy.layDSNhanSu());
@@ -53,10 +63,25 @@ namespace Do_An_Tin_Hoc
 
         }
 
-        
-       
-       
-      
+        private string GenerateCode(int length)
+        {
+            Random random = new Random();
+            const string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            // Use StringBuilder for efficient string concatenation
+            StringBuilder codeBuilder = new StringBuilder();
+
+            for (int i = 0; i < length; i++)
+            {
+                // Append a random character from the 'characters' string
+                codeBuilder.Append(characters[random.Next(characters.Length)]);
+            }
+
+            return codeBuilder.ToString();
+        }
+
+
+
         private void HienNhanSu(List<CNhanSu> ns)
         {
             BindingSource sd=new BindingSource();

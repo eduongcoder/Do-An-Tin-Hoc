@@ -169,7 +169,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblTieuDe);
             this.Name = "frmDKvaDoiMK";
-            this.Text = "frmDangKy";
+            this.Text = "Đăng Ký";
             this.Load += new System.EventHandler(this.frmDangKy_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
