@@ -43,6 +43,8 @@
             this.btnTatCa = new System.Windows.Forms.Button();
             this.cboMatHang = new System.Windows.Forms.ComboBox();
             this.btnXoa = new System.Windows.Forms.Button();
+            this.ckbBC = new System.Windows.Forms.CheckBox();
+            this.ckbTTG = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,7 +124,7 @@
             // dtp
             // 
             this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp.Location = new System.Drawing.Point(433, 84);
+            this.dtp.Location = new System.Drawing.Point(216, 99);
             this.dtp.Name = "dtp";
             this.dtp.Size = new System.Drawing.Size(200, 22);
             this.dtp.TabIndex = 4;
@@ -130,7 +132,7 @@
             // 
             // btnNgay
             // 
-            this.btnNgay.Location = new System.Drawing.Point(27, 136);
+            this.btnNgay.Location = new System.Drawing.Point(516, 133);
             this.btnNgay.Name = "btnNgay";
             this.btnNgay.Size = new System.Drawing.Size(85, 45);
             this.btnNgay.TabIndex = 5;
@@ -140,7 +142,7 @@
             // 
             // btnThang
             // 
-            this.btnThang.Location = new System.Drawing.Point(116, 136);
+            this.btnThang.Location = new System.Drawing.Point(605, 133);
             this.btnThang.Name = "btnThang";
             this.btnThang.Size = new System.Drawing.Size(85, 45);
             this.btnThang.TabIndex = 5;
@@ -150,7 +152,7 @@
             // 
             // btnNam
             // 
-            this.btnNam.Location = new System.Drawing.Point(207, 136);
+            this.btnNam.Location = new System.Drawing.Point(696, 133);
             this.btnNam.Name = "btnNam";
             this.btnNam.Size = new System.Drawing.Size(85, 45);
             this.btnNam.TabIndex = 5;
@@ -160,9 +162,9 @@
             // 
             // btnBanChay
             // 
-            this.btnBanChay.Location = new System.Drawing.Point(342, 85);
+            this.btnBanChay.Location = new System.Drawing.Point(516, 81);
             this.btnBanChay.Name = "btnBanChay";
-            this.btnBanChay.Size = new System.Drawing.Size(85, 60);
+            this.btnBanChay.Size = new System.Drawing.Size(85, 43);
             this.btnBanChay.TabIndex = 5;
             this.btnBanChay.Text = "Bán Chạy";
             this.btnBanChay.UseVisualStyleBackColor = true;
@@ -170,7 +172,7 @@
             // 
             // btnTatCa
             // 
-            this.btnTatCa.Location = new System.Drawing.Point(116, 85);
+            this.btnTatCa.Location = new System.Drawing.Point(605, 82);
             this.btnTatCa.Name = "btnTatCa";
             this.btnTatCa.Size = new System.Drawing.Size(85, 45);
             this.btnTatCa.TabIndex = 5;
@@ -181,14 +183,14 @@
             // cboMatHang
             // 
             this.cboMatHang.FormattingEnabled = true;
-            this.cboMatHang.Location = new System.Drawing.Point(433, 121);
+            this.cboMatHang.Location = new System.Drawing.Point(216, 127);
             this.cboMatHang.Name = "cboMatHang";
             this.cboMatHang.Size = new System.Drawing.Size(200, 24);
             this.cboMatHang.TabIndex = 6;
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(649, 121);
+            this.btnXoa.Location = new System.Drawing.Point(422, 127);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(64, 24);
             this.btnXoa.TabIndex = 3;
@@ -196,11 +198,36 @@
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click_1);
             // 
+            // ckbBC
+            // 
+            this.ckbBC.AutoSize = true;
+            this.ckbBC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbBC.Location = new System.Drawing.Point(27, 129);
+            this.ckbBC.Name = "ckbBC";
+            this.ckbBC.Size = new System.Drawing.Size(104, 24);
+            this.ckbBC.TabIndex = 7;
+            this.ckbBC.Text = "Bán Chạy";
+            this.ckbBC.UseVisualStyleBackColor = true;
+            // 
+            // ckbTTG
+            // 
+            this.ckbTTG.AutoSize = true;
+            this.ckbTTG.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbTTG.Location = new System.Drawing.Point(27, 99);
+            this.ckbTTG.Name = "ckbTTG";
+            this.ckbTTG.Size = new System.Drawing.Size(145, 24);
+            this.ckbTTG.TabIndex = 7;
+            this.ckbTTG.Text = "Toàn Thời Gian";
+            this.ckbTTG.UseVisualStyleBackColor = true;
+            this.ckbTTG.CheckedChanged += new System.EventHandler(this.ckbTTG_CheckedChanged);
+            // 
             // FrmDoanhThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 541);
+            this.Controls.Add(this.ckbTTG);
+            this.Controls.Add(this.ckbBC);
             this.Controls.Add(this.cboMatHang);
             this.Controls.Add(this.btnNam);
             this.Controls.Add(this.btnTatCa);
@@ -238,5 +265,7 @@
         private System.Windows.Forms.Button btnTatCa;
         private System.Windows.Forms.ComboBox cboMatHang;
         private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.CheckBox ckbBC;
+        private System.Windows.Forms.CheckBox ckbTTG;
     }
 }

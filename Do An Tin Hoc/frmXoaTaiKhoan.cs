@@ -38,7 +38,7 @@ namespace Do_An_Tin_Hoc
             if (cboTaiKhoan.SelectedIndex != -1)
             {
                 txtMatKhau.Text = xuly.TimTK(cboTaiKhoan.Text).Matkhau;
-                MessageBox.Show(xuly.TimTK(cboTaiKhoan.Text).Matkhau);
+               
             }
         }
 
@@ -64,8 +64,9 @@ namespace Do_An_Tin_Hoc
                     {
                         xuly.XoaTaiKoan(cboTaiKhoan.Text);
                         xuly.luuFileTaiKhoan(diachiDSTaiKhoan);
+                        MessageBox.Show("Xóa thành công!");
                     }
-                    MessageBox.Show("Xóa thành công!");
+                   
                 }
                
             }

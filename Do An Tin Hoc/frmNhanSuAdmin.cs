@@ -48,12 +48,9 @@ namespace Do_An_Tin_Hoc
                     if (!xuLy.TimMaTrung(temp)){
                         flag = false;
                     }
-                }while(flag);
-                
-
+                }while(flag);                
                 CNhanSu nhansu = new CNhanSu(temp, txtHoTen.Text, dtp.Value.Date);
-                xuLy.ThemNS(nhansu);
-               
+                xuLy.ThemNS(nhansu);               
                 HienNhanSu(xuLy.layDSNhanSu());
                 xuLy.luuFileNS(diachi);
             }

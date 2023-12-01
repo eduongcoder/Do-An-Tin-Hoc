@@ -25,8 +25,8 @@ namespace Do_An_Tin_Hoc
             xuLy.docFile(diachi);
             xuLy.docFileDoanhThu(diachi2);
             HienThi(BubbleSortSoLuong(xuLy.layDSDoanhThu()));
-            loadComboBox(xuLy.layDSMatHang());
-
+            loadComboBox(xuLy.layDSMatHang());         
+            ckbTTG.Checked = true;
         }
         private void loadComboBox(List<CMatHang> ds)
         {
@@ -49,33 +49,44 @@ namespace Do_An_Tin_Hoc
         }
 
   
-        private int getTieuChi( DateTime tieuChi,string kieuTieuChi)
+        private int getTieuChi( DateTime dateTime1, DateTime dateTime2,string kieuTieuChi)
         {
             switch (kieuTieuChi)
             {
                 case "Ngay":
-                    return tieuChi.Day;
+                    if (xuLy.CompareDateTime(dateTime1, dateTime2))
+                        return dateTime2.Day;
+                    else return 0;
                 case "Thang":
-                    return tieuChi.Month;
+                  
+                    if (dateTime1.Month== dateTime2.Month&& dateTime1.Year == dateTime2.Year)
+                    {                      
+                        return dateTime2.Month;
+                    }                       
+                    else return 0;
                 case "Nam":
-                    return tieuChi.Year;
+                    if (dateTime1.Year == dateTime2.Year)
+                        return dateTime2.Year;
+                    else return 0;
                 default: 
                     return 0;
             }
         }
 
-        private List<CMatHang> locBanChay(List<CMatHang> dsmh,DateTime thoigian,string kieuTieuChi,object ten) 
+        private List<CMatHang> locBanChay(List<CMatHang> dsmh,DateTime thoigian,string kieuTieuChi,object ten,bool trangThai) 
         {
             List<CMatHang> tempList= new List<CMatHang>();
             List<CMatHang> ds = xuLy.layDSMatHang();
             for (int i = 0;i< ds.Count;i++)
             {                
                 CMatHang mh = new CMatHang();
-                if (kieuTieuChi != "" && ten==null)
-                {//Lọc theo ngày tháng 
+                if (kieuTieuChi != "" && ten==null && !trangThai)
+                {   //Lọc theo ngày tháng và không có tên món hàng cụ thể
+                    //Chi tiết các món hàng
                     for (int j = 0; j < dsmh.Count; j++)
                     {
-                        if (dsmh[j].m_TenMatHang == ds[i].m_TenMatHang && getTieuChi(thoigian, kieuTieuChi) == getTieuChi(dsmh[j].m_NgayMuaHang, kieuTieuChi))
+                        int temp = getTieuChi(thoigian, dsmh[j].m_NgayMuaHang, kieuTieuChi);
+                        if (dsmh[j].m_TenMatHang == ds[i].m_TenMatHang &&temp!=0 && getTieuChi(thoigian, dsmh[j].m_NgayMuaHang, kieuTieuChi) != 0)
                         {
                             mh = new CMatHang();
                             mh.m_TenMatHang = dsmh[j].m_TenMatHang;                           
@@ -88,15 +99,15 @@ namespace Do_An_Tin_Hoc
                     continue;
 
                 }
-                else if(ten!=null&& kieuTieuChi!=null)
-                {
+                else if(ten!=null&& kieuTieuChi!="" && !trangThai)
+                {   //Lọc theo ngày tháng và có tên món hàng cụ thể
+                    //Chi tiết các món hàng
                     if (xuLy.TimMatHang(ten.ToString()) != null)
                     {                   
                         for (int j = 0; j < dsmh.Count; j++)
-                        {                          
-                            if (dsmh[j].m_TenMatHang == ten.ToString()&& getTieuChi(thoigian,kieuTieuChi)== getTieuChi(dsmh[j].m_NgayMuaHang, kieuTieuChi))
-                            {
-                               
+                        {   
+                            if (dsmh[j].m_TenMatHang == ten.ToString()&& getTieuChi(thoigian, dsmh[j].m_NgayMuaHang, kieuTieuChi) != 0)
+                            {                               
                                 mh = new CMatHang();
                                 mh.m_TenMatHang = ten.ToString();
                                 mh.m_SoLuong = dsmh[j].m_SoLuong;
@@ -111,23 +122,43 @@ namespace Do_An_Tin_Hoc
                     {
                         break;
                     }
-                }
-                else if(kieuTieuChi!=null)
-                {
+                }                
+                else if(kieuTieuChi!="" && trangThai)
+                {   //Có ngày tháng và ko có tên món hàng cụ thể
+                    //Tổng các hàng
+                    cboMatHang.SelectedIndex = -1;
+                    mh = new CMatHang();                   
                     for (int j = 0; j < dsmh.Count; j++)
                     {
-                        if (dsmh[j].m_TenMatHang == ds[i].m_TenMatHang && getTieuChi(thoigian, kieuTieuChi) == getTieuChi(dsmh[j].m_NgayMuaHang, kieuTieuChi))
+                        if (dsmh[j].m_TenMatHang == ds[i].m_TenMatHang&&getTieuChi(thoigian, dsmh[j].m_NgayMuaHang, kieuTieuChi) != 0)
                         {
-
-                            mh.m_TenMatHang = dsmh[j].m_TenMatHang;                          
+                            mh.m_TenMatHang = ds[i].m_TenMatHang;                          
                             mh.m_SoLuong += dsmh[j].m_SoLuong;
                             mh.m_GiaTien += dsmh[j].m_GiaTien;
                             mh.m_NgayMuaHang = dsmh[j].m_NgayMuaHang.Date;
                         }
                     }
-                }              
-              if(mh.m_TenMatHang!="")
-                tempList.Add(mh);
+                    if (mh.m_TenMatHang != "")
+                        tempList.Add(mh);
+                }
+                else 
+                if (mh.m_TenMatHang == "")
+                {   //Lọc bất kể hàng hóa hay ngày tháng
+                    //Tổng các hàng
+                    mh = new CMatHang();
+                    for (int j = 0; j < dsmh.Count; j++)
+                     {
+                        if (dsmh[j].m_TenMatHang == ds[i].m_TenMatHang )
+                        {
+                            mh.m_TenMatHang = ds[i].m_TenMatHang;
+                            mh.m_SoLuong += dsmh[j].m_SoLuong;
+                            mh.m_GiaTien += dsmh[j].m_GiaTien;                     
+                            mh.m_NgayMuaHang = dsmh[j].m_NgayMuaHang.Date;
+                        }
+                    } 
+                    tempList.Add(mh);
+                }
+
             }
             return tempList;
         }
@@ -154,8 +185,8 @@ namespace Do_An_Tin_Hoc
         {
             try
             {
-                if (locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Ngay", cboMatHang.SelectedItem)!= null)
-                    HienThi(BubbleSortSoLuong(locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Ngay", cboMatHang.SelectedItem)));
+                if (locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Ngay", cboMatHang.SelectedItem, ckbBC.Checked) != null)
+                    HienThi(BubbleSortSoLuong(locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Ngay", cboMatHang.SelectedItem,ckbBC.Checked)));
             }
             catch (Exception) { }
              
@@ -163,9 +194,9 @@ namespace Do_An_Tin_Hoc
         private void btnBanChay_Click(object sender, EventArgs e)
         {
             try
-            {             
-                if (locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "", cboMatHang.SelectedItem) != null )
-                    HienThi(BubbleSortSoLuong(locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "", cboMatHang.SelectedItem)));
+            {
+                if (locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "", cboMatHang.SelectedItem, ckbBC.Checked) != null)
+                    HienThi(BubbleSortSoLuong(locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "", cboMatHang.SelectedItem, ckbBC.Checked)));
             }
             catch (Exception) { }
         }
@@ -174,9 +205,9 @@ namespace Do_An_Tin_Hoc
         {
             try
             {
-                if (locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Nam", cboMatHang.SelectedItem) != null)
+                if (locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Nam", cboMatHang.SelectedItem, ckbBC.Checked) != null)
 
-                    HienThi(BubbleSortSoLuong(locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Nam", cboMatHang.SelectedItem)));
+                    HienThi(BubbleSortSoLuong(locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Nam", cboMatHang.SelectedItem, ckbBC.Checked)));
 
             }
             catch (Exception) { }
@@ -188,9 +219,9 @@ namespace Do_An_Tin_Hoc
         {
             try
             {
-                if (locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Thang", cboMatHang.SelectedItem) != null)
+                if (locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Thang", cboMatHang.SelectedItem, ckbBC.Checked) != null)
 
-                    HienThi(BubbleSortSoLuong(locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Thang", cboMatHang.SelectedItem)));
+                    HienThi(BubbleSortSoLuong(locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Thang", cboMatHang.SelectedItem, ckbBC.Checked)));
 
             }
             catch (Exception) { }
@@ -201,8 +232,8 @@ namespace Do_An_Tin_Hoc
         {
             try
             {
-                if (locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Ngay", cboMatHang.SelectedItem) != null)
-                    HienThi(BubbleSortSoLuong(locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Ngay", cboMatHang.SelectedItem)));
+                if (locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Ngay", cboMatHang.SelectedItem, ckbBC.Checked) != null)
+                    HienThi(BubbleSortSoLuong(locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "Ngay", cboMatHang.SelectedItem, ckbBC.Checked)));
 
             }
             catch (Exception) { }
@@ -223,6 +254,18 @@ namespace Do_An_Tin_Hoc
         private void btnXoa_Click_1(object sender, EventArgs e)
         {
             cboMatHang.Text = null;
+        }
+
+        private void ckbTTG_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbTTG.Checked)
+            {
+                dtp.Enabled = true;
+            }else 
+            {
+                dtp.Value = DateTime.Today;
+                dtp.Enabled = false;
+            }
         }
     }
 }
