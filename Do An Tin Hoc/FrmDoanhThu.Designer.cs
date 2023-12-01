@@ -35,11 +35,14 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.dtp = new System.Windows.Forms.DateTimePicker();
+            this.btnNgay = new System.Windows.Forms.Button();
+            this.btnThang = new System.Windows.Forms.Button();
+            this.btnNam = new System.Windows.Forms.Button();
+            this.btnBanChay = new System.Windows.Forms.Button();
+            this.btnTatCa = new System.Windows.Forms.Button();
+            this.cboMatHang = new System.Windows.Forms.ComboBox();
             this.btnXoa = new System.Windows.Forms.Button();
-            this.cboSapXep = new System.Windows.Forms.ComboBox();
-            this.btnSapXep = new System.Windows.Forms.Button();
-            this.btnSapXepTheoNgay = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +50,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(260, 9);
+            this.label1.Location = new System.Drawing.Point(263, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(273, 58);
             this.label1.TabIndex = 1;
@@ -61,13 +64,13 @@
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dgv.Location = new System.Drawing.Point(31, 108);
+            this.dgv.Location = new System.Drawing.Point(27, 187);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersWidth = 51;
             this.dgv.RowTemplate.Height = 24;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(757, 267);
+            this.dgv.Size = new System.Drawing.Size(757, 286);
             this.dgv.TabIndex = 2;
             // 
             // Column1
@@ -108,7 +111,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(672, 381);
+            this.btnThoat.Location = new System.Drawing.Point(705, 479);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(79, 41);
             this.btnThoat.TabIndex = 3;
@@ -116,66 +119,96 @@
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // dtp
+            // 
+            this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp.Location = new System.Drawing.Point(433, 84);
+            this.dtp.Name = "dtp";
+            this.dtp.Size = new System.Drawing.Size(200, 22);
+            this.dtp.TabIndex = 4;
+            this.dtp.ValueChanged += new System.EventHandler(this.dtp_ValueChanged);
+            // 
+            // btnNgay
+            // 
+            this.btnNgay.Location = new System.Drawing.Point(27, 136);
+            this.btnNgay.Name = "btnNgay";
+            this.btnNgay.Size = new System.Drawing.Size(85, 45);
+            this.btnNgay.TabIndex = 5;
+            this.btnNgay.Text = "Ngày";
+            this.btnNgay.UseVisualStyleBackColor = true;
+            this.btnNgay.Click += new System.EventHandler(this.btnNgay_Click);
+            // 
+            // btnThang
+            // 
+            this.btnThang.Location = new System.Drawing.Point(116, 136);
+            this.btnThang.Name = "btnThang";
+            this.btnThang.Size = new System.Drawing.Size(85, 45);
+            this.btnThang.TabIndex = 5;
+            this.btnThang.Text = "Tháng";
+            this.btnThang.UseVisualStyleBackColor = true;
+            this.btnThang.Click += new System.EventHandler(this.btnThang_Click);
+            // 
+            // btnNam
+            // 
+            this.btnNam.Location = new System.Drawing.Point(207, 136);
+            this.btnNam.Name = "btnNam";
+            this.btnNam.Size = new System.Drawing.Size(85, 45);
+            this.btnNam.TabIndex = 5;
+            this.btnNam.Text = "Năm";
+            this.btnNam.UseVisualStyleBackColor = true;
+            this.btnNam.Click += new System.EventHandler(this.btnNam_Click);
+            // 
+            // btnBanChay
+            // 
+            this.btnBanChay.Location = new System.Drawing.Point(342, 85);
+            this.btnBanChay.Name = "btnBanChay";
+            this.btnBanChay.Size = new System.Drawing.Size(85, 60);
+            this.btnBanChay.TabIndex = 5;
+            this.btnBanChay.Text = "Bán Chạy";
+            this.btnBanChay.UseVisualStyleBackColor = true;
+            this.btnBanChay.Click += new System.EventHandler(this.btnBanChay_Click);
+            // 
+            // btnTatCa
+            // 
+            this.btnTatCa.Location = new System.Drawing.Point(116, 85);
+            this.btnTatCa.Name = "btnTatCa";
+            this.btnTatCa.Size = new System.Drawing.Size(85, 45);
+            this.btnTatCa.TabIndex = 5;
+            this.btnTatCa.Text = "Tất Cả";
+            this.btnTatCa.UseVisualStyleBackColor = true;
+            this.btnTatCa.Click += new System.EventHandler(this.btnTatCa_Click);
+            // 
+            // cboMatHang
+            // 
+            this.cboMatHang.FormattingEnabled = true;
+            this.cboMatHang.Location = new System.Drawing.Point(433, 121);
+            this.cboMatHang.Name = "cboMatHang";
+            this.cboMatHang.Size = new System.Drawing.Size(200, 24);
+            this.cboMatHang.TabIndex = 6;
+            // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(587, 381);
+            this.btnXoa.Location = new System.Drawing.Point(649, 121);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(79, 41);
+            this.btnXoa.Size = new System.Drawing.Size(64, 24);
             this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Visible = false;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // cboSapXep
-            // 
-            this.cboSapXep.FormattingEnabled = true;
-            this.cboSapXep.Location = new System.Drawing.Point(652, 78);
-            this.cboSapXep.Name = "cboSapXep";
-            this.cboSapXep.Size = new System.Drawing.Size(136, 24);
-            this.cboSapXep.TabIndex = 4;
-            this.cboSapXep.SelectedIndexChanged += new System.EventHandler(this.cboSapXep_SelectedIndexChanged);
-            // 
-            // btnSapXep
-            // 
-            this.btnSapXep.Location = new System.Drawing.Point(359, 381);
-            this.btnSapXep.Name = "btnSapXep";
-            this.btnSapXep.Size = new System.Drawing.Size(222, 41);
-            this.btnSapXep.TabIndex = 3;
-            this.btnSapXep.Text = "Sắp xếp theo số lượng";
-            this.btnSapXep.UseVisualStyleBackColor = true;
-            this.btnSapXep.Click += new System.EventHandler(this.btnSapXep_Click);
-            // 
-            // btnSapXepTheoNgay
-            // 
-            this.btnSapXepTheoNgay.Location = new System.Drawing.Point(142, 381);
-            this.btnSapXepTheoNgay.Name = "btnSapXepTheoNgay";
-            this.btnSapXepTheoNgay.Size = new System.Drawing.Size(211, 41);
-            this.btnSapXepTheoNgay.TabIndex = 3;
-            this.btnSapXepTheoNgay.Text = "Sắp xếp theo ngày tháng";
-            this.btnSapXepTheoNgay.UseVisualStyleBackColor = true;
-            this.btnSapXepTheoNgay.Click += new System.EventHandler(this.btnSapXepTheoNgay_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(647, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 25);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Sắp Xếp:";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click_1);
             // 
             // FrmDoanhThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.cboSapXep);
+            this.ClientSize = new System.Drawing.Size(805, 541);
+            this.Controls.Add(this.cboMatHang);
+            this.Controls.Add(this.btnNam);
+            this.Controls.Add(this.btnTatCa);
+            this.Controls.Add(this.btnBanChay);
+            this.Controls.Add(this.btnThang);
+            this.Controls.Add(this.btnNgay);
+            this.Controls.Add(this.dtp);
             this.Controls.Add(this.btnXoa);
-            this.Controls.Add(this.btnSapXepTheoNgay);
-            this.Controls.Add(this.btnSapXep);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.label1);
@@ -197,10 +230,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DateTimePicker dtp;
+        private System.Windows.Forms.Button btnNgay;
+        private System.Windows.Forms.Button btnThang;
+        private System.Windows.Forms.Button btnNam;
+        private System.Windows.Forms.Button btnBanChay;
+        private System.Windows.Forms.Button btnTatCa;
+        private System.Windows.Forms.ComboBox cboMatHang;
         private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.ComboBox cboSapXep;
-        private System.Windows.Forms.Button btnSapXep;
-        private System.Windows.Forms.Button btnSapXepTheoNgay;
-        private System.Windows.Forms.Label label2;
     }
 }

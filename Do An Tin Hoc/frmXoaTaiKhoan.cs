@@ -54,12 +54,16 @@ namespace Do_An_Tin_Hoc
                 }
                 else
                 {
-                    xuly.XoaTaiKoan(cboTaiKhoan.Text);
-                    xuly.luuFileTaiKhoan(diachiDSTaiKhoan);
+                    
                     // MessageBox.Show(CTaiKhoan.getTenTK());
                     if (cboTaiKhoan.Text == CTaiKhoan.getTenTK())
                     {
-                        this.Close();
+                        MessageBox.Show("Bạn không thể xóa tài khoản đang được sử dụng!");
+                    }
+                    else
+                    {
+                        xuly.XoaTaiKoan(cboTaiKhoan.Text);
+                        xuly.luuFileTaiKhoan(diachiDSTaiKhoan);
                     }
                     MessageBox.Show("Xóa thành công!");
                 }
