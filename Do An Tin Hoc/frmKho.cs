@@ -184,9 +184,8 @@ namespace Do_An_Tin_Hoc
             try
             {
                 int temp = int.Parse(txtSL.Text);
-                if (temp <=0)
-                {
-                    MessageBox.Show("Số lượng phải lớn hơn hoặc bằng 0!");
+                if (temp <0)
+                {                    
                     txtSL.Text = "0";
                 }
             }
@@ -203,13 +202,13 @@ namespace Do_An_Tin_Hoc
                 int temp = int.Parse(txtGiaTien.Text);
                 if (temp <= 0)
                 {
-                    MessageBox.Show("Giá tiền phải không được bé hơn 0!");
+                    //MessageBox.Show("Giá tiền phải không được bé hơn 0!");
                     txtSL.Text = "";
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Bạn đã nhập sai!");
+                txtSL.Text = "";
             }
         }
 

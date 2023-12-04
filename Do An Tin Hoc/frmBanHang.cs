@@ -43,6 +43,7 @@ namespace Do_An_Tin_Hoc
             if(cboTenMatHang.SelectedIndex != -1)
             { 
                 txtGiaTien.Text = xuLy.GetDSMH()[cboTenMatHang.SelectedItem.ToString()].m_GiaTien.ToString();
+                txtSoLuong.Text=string.Empty;
             }
         }
       
@@ -93,7 +94,7 @@ namespace Do_An_Tin_Hoc
 
                         CGioHang giohang = new CGioHang(cboTenMatHang.Text, tongtien, int.Parse(txtSoLuong.Text));
                         CGioHang.themHang(giohang); //cập nhật dữ liệu cho form Thanh Toán
-
+                       
                         CapNhatKho();
 
                         HienThi(dsChonMua);
@@ -167,8 +168,11 @@ namespace Do_An_Tin_Hoc
         private void txtSoLuong_TextChanged(object sender, EventArgs e)
         {
             try
-            {
-                if ((xuLy.GetDSMH()[cboTenMatHang.Text].m_SoLuong - int.Parse(txtSoLuong.Text)) < 0 && (int.Parse(txtSoLuong.Text)) > 0)
+            {   if ((int.Parse(txtSoLuong.Text)) <= 0)
+                {
+                    txtSoLuong.Text = string.Empty;
+                }
+                if ((xuLy.GetDSMH()[cboTenMatHang.Text].m_SoLuong - int.Parse(txtSoLuong.Text)) < 0 )
                 {
                     MessageBox.Show("Không đủ số lượng\n Chỉ còn" + xuLy.GetDSMH()[cboTenMatHang.Text].m_SoLuong);
                     txtSoLuong.Text =string.Empty;

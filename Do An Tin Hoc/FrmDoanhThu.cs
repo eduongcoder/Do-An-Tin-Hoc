@@ -126,6 +126,7 @@ namespace Do_An_Tin_Hoc
                 else if(kieuTieuChi!="" && trangThai)
                 {   //Có ngày tháng và ko có tên món hàng cụ thể
                     //Tổng các hàng
+                 
                     cboMatHang.SelectedIndex = -1;
                     mh = new CMatHang();                   
                     for (int j = 0; j < dsmh.Count; j++)
@@ -140,11 +141,15 @@ namespace Do_An_Tin_Hoc
                     }
                     if (mh.m_TenMatHang != "")
                         tempList.Add(mh);
+                    else
+                    {
+
+                    }
                 }
-                else 
-                if (mh.m_TenMatHang == "")
-                {   //Lọc bất kể hàng hóa hay ngày tháng
-                    //Tổng các hàng
+                else if (kieuTieuChi== "" && trangThai)
+                {   //Lọc bất kể hàng hóa hay ngày tháng 
+                    //Tổng các hàng               
+                    cboMatHang.SelectedIndex = -1;
                     mh = new CMatHang();
                     for (int j = 0; j < dsmh.Count; j++)
                      {
@@ -157,8 +162,24 @@ namespace Do_An_Tin_Hoc
                         }
                     } 
                     tempList.Add(mh);
+                }else if (kieuTieuChi == ""  && !trangThai)
+                {
+                    //Lọc cụ thể hàng hóa hay ngày tháng
+                    //Chi tiết các hàng hóa                                
+                    for (int j = 0; j < dsmh.Count; j++)
+                    {
+                        if ( dsmh[j].m_TenMatHang== ten.ToString())
+                        {
+                            mh = new CMatHang();
+                            mh.m_TenMatHang = ds[i].m_TenMatHang;
+                            mh.m_SoLuong = dsmh[j].m_SoLuong;
+                            mh.m_GiaTien = dsmh[j].m_GiaTien;
+                            mh.m_NgayMuaHang = dsmh[j].m_NgayMuaHang.Date;
+                            tempList.Add(mh);
+                        }
+                    }
+                    return tempList;
                 }
-
             }
             return tempList;
         }
@@ -176,8 +197,7 @@ namespace Do_An_Tin_Hoc
                         listSoLuong[j+1] = temp;
                     }
                 }
-            }
-         
+            }        
             return listSoLuong;
         }
       
@@ -191,15 +211,7 @@ namespace Do_An_Tin_Hoc
             catch (Exception) { }
              
         }
-        private void btnBanChay_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "", cboMatHang.SelectedItem, ckbBC.Checked) != null)
-                    HienThi(BubbleSortSoLuong(locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "", cboMatHang.SelectedItem, ckbBC.Checked)));
-            }
-            catch (Exception) { }
-        }
+    
 
         private void btnNam_Click(object sender, EventArgs e)
         {
@@ -244,7 +256,18 @@ namespace Do_An_Tin_Hoc
         {
             try
             {
-                HienThi(BubbleSortSoLuong(xuLy.layDSDoanhThu()));
+                if (ckbBC.Checked)
+                {
+                    HienThi(BubbleSortSoLuong(locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "", cboMatHang.SelectedItem, ckbBC.Checked)));
+                }                   
+                else if(cboMatHang.SelectedItem!=null){
+                    HienThi(BubbleSortSoLuong(locBanChay(xuLy.layDSDoanhThu(), dtp.Value, "", cboMatHang.SelectedItem, ckbBC.Checked)));
+                }
+                else
+                {
+                    HienThi(BubbleSortSoLuong(xuLy.layDSDoanhThu()));
+                }
+                   
 
             }
             catch (Exception) { }

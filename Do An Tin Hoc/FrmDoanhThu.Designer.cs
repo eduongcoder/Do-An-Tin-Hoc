@@ -39,7 +39,6 @@
             this.btnNgay = new System.Windows.Forms.Button();
             this.btnThang = new System.Windows.Forms.Button();
             this.btnNam = new System.Windows.Forms.Button();
-            this.btnBanChay = new System.Windows.Forms.Button();
             this.btnTatCa = new System.Windows.Forms.Button();
             this.cboMatHang = new System.Windows.Forms.ComboBox();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -160,16 +159,6 @@
             this.btnNam.UseVisualStyleBackColor = true;
             this.btnNam.Click += new System.EventHandler(this.btnNam_Click);
             // 
-            // btnBanChay
-            // 
-            this.btnBanChay.Location = new System.Drawing.Point(516, 81);
-            this.btnBanChay.Name = "btnBanChay";
-            this.btnBanChay.Size = new System.Drawing.Size(85, 43);
-            this.btnBanChay.TabIndex = 5;
-            this.btnBanChay.Text = "Bán Chạy";
-            this.btnBanChay.UseVisualStyleBackColor = true;
-            this.btnBanChay.Click += new System.EventHandler(this.btnBanChay_Click);
-            // 
             // btnTatCa
             // 
             this.btnTatCa.Location = new System.Drawing.Point(605, 82);
@@ -231,7 +220,6 @@
             this.Controls.Add(this.cboMatHang);
             this.Controls.Add(this.btnNam);
             this.Controls.Add(this.btnTatCa);
-            this.Controls.Add(this.btnBanChay);
             this.Controls.Add(this.btnThang);
             this.Controls.Add(this.btnNgay);
             this.Controls.Add(this.dtp);
@@ -261,7 +249,6 @@
         private System.Windows.Forms.Button btnNgay;
         private System.Windows.Forms.Button btnThang;
         private System.Windows.Forms.Button btnNam;
-        private System.Windows.Forms.Button btnBanChay;
         private System.Windows.Forms.Button btnTatCa;
         private System.Windows.Forms.ComboBox cboMatHang;
         private System.Windows.Forms.Button btnXoa;
