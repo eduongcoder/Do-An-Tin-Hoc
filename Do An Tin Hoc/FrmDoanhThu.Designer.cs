@@ -176,6 +176,7 @@
             this.cboMatHang.Name = "cboMatHang";
             this.cboMatHang.Size = new System.Drawing.Size(200, 24);
             this.cboMatHang.TabIndex = 6;
+            this.cboMatHang.SelectedIndexChanged += new System.EventHandler(this.cboMatHang_SelectedIndexChanged);
             // 
             // btnXoa
             // 

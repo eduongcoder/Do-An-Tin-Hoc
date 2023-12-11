@@ -180,5 +180,10 @@ namespace Do_An_Tin_Hoc
             }catch (Exception){ txtSoLuong.Text = string.Empty; }
             
         }
+
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

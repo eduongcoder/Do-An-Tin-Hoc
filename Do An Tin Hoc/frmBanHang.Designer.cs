@@ -52,7 +52,7 @@
             this.Column1,
             this.Column3,
             this.Column2});
-            this.dgv.Location = new System.Drawing.Point(3, 191);
+            this.dgv.Location = new System.Drawing.Point(26, 193);
             this.dgv.MultiSelect = false;
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
@@ -61,6 +61,7 @@
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(570, 230);
             this.dgv.TabIndex = 25;
+            this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
             this.dgv.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_RowEnter);
             // 
             // Column1
@@ -92,7 +93,7 @@
             // 
             // btnXoaHang
             // 
-            this.btnXoaHang.Location = new System.Drawing.Point(580, 374);
+            this.btnXoaHang.Location = new System.Drawing.Point(603, 376);
             this.btnXoaHang.Name = "btnXoaHang";
             this.btnXoaHang.Size = new System.Drawing.Size(102, 56);
             this.btnXoaHang.TabIndex = 22;
@@ -102,7 +103,7 @@
             // 
             // btnThemHang
             // 
-            this.btnThemHang.Location = new System.Drawing.Point(580, 250);
+            this.btnThemHang.Location = new System.Drawing.Point(603, 252);
             this.btnThemHang.Name = "btnThemHang";
             this.btnThemHang.Size = new System.Drawing.Size(102, 56);
             this.btnThemHang.TabIndex = 24;
@@ -178,7 +179,7 @@
             // 
             // btnLenDon
             // 
-            this.btnLenDon.Location = new System.Drawing.Point(579, 312);
+            this.btnLenDon.Location = new System.Drawing.Point(602, 314);
             this.btnLenDon.Name = "btnLenDon";
             this.btnLenDon.Size = new System.Drawing.Size(102, 56);
             this.btnLenDon.TabIndex = 24;

@@ -30,7 +30,7 @@ namespace Do_An_Tin_Hoc
             // ReadFile("DanhSachTaiKhoan.txt");
             if (xuLy.docFileTaiKhoan(diachiDSTaiKhoan))
             {
-                LoadTKMK();
+                //LoadTKMK();
             }
             else
             {
@@ -116,46 +116,42 @@ namespace Do_An_Tin_Hoc
         {
             
         }
-        public void LoadTKMK()
-        {
-            for (int i = 0; i < xuLy.layDSTaiKhoan().Count; i++)
-            {
-                lst.Items.Add(xuLy.layDSTaiKhoan()[i].Taikhoan);
-                lst2.Items.Add(xuLy.layDSTaiKhoan()[i].Matkhau);
-            }
-        }
-        private void lst_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            for (int i = 0; i < xuLy.layDSTaiKhoan().Count; i++)
-            {
-                if (lst.SelectedItem.ToString() == xuLy.layDSTaiKhoan()[i].Taikhoan)
-                {
-                    lst2.SelectedItem = lst2.Items[i];
-                }
-            }
-
-
-          
-            
-        }
+        //public void LoadTKMK()
+        //{
+        //    for (int i = 0; i < xuLy.layDSTaiKhoan().Count; i++)
+        //    {
+        //        lst.Items.Add(xuLy.layDSTaiKhoan()[i].Taikhoan);
+        //        lst2.Items.Add(xuLy.layDSTaiKhoan()[i].Matkhau);
+        //    }
+        //}
+        //private void lst_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    for (int i = 0; i < xuLy.layDSTaiKhoan().Count; i++)
+        //    {
+        //        if (lst.SelectedItem.ToString() == xuLy.layDSTaiKhoan()[i].Taikhoan)
+        //        {
+        //            lst2.SelectedItem = lst2.Items[i];
+        //        }
+        //    } 
+        //}
 
         private void lst2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            for(int i=0;i< xuLy.layDSTaiKhoan().Count; i++)
-            {
-                if (lst.SelectedItem.ToString() == xuLy.layDSTaiKhoan()[i].Taikhoan)
-                {
-                    //lst2.SelectedItem = lst2.Items[i];
-                    txtTaiKhoan.Text = lst.SelectedItem.ToString();
-                    txtMatKhau.Text = lst2.SelectedItem.ToString();
-                }
-            }
-        }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    for(int i=0;i< xuLy.layDSTaiKhoan().Count; i++)
+        //    {
+        //        if (lst.SelectedItem.ToString() == xuLy.layDSTaiKhoan()[i].Taikhoan)
+        //        {
+        //            //lst2.SelectedItem = lst2.Items[i];
+        //            txtTaiKhoan.Text = lst.SelectedItem.ToString();
+        //            txtMatKhau.Text = lst2.SelectedItem.ToString();
+        //        }
+        //    }
+        //}
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {

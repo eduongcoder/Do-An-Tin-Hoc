@@ -38,24 +38,26 @@ namespace Do_An_Tin_Hoc
             {
                 MessageBox.Show("File lỗi!");
             }
-            btnSua.Visible = false;
+           // btnSua.Visible = false;
         }
         private void ConfigButton(bool loaitk)
         {
             if (!loaitk)
             {                               
                 btnThemHang.Visible = false;
-                btnSua.Visible = false;
+               // btnSua.Visible = false;
                 btnXoaHang.Visible = false;
                 btnNhapKho.Location= btnThemHang.Location;
                 btnNhapKho.Location = new Point(btnNhapKho.Location.X+40,btnNhapKho.Location.Y+70);
-
+                txtGiaTien.ReadOnly = true;
+                txtMH.ReadOnly= true;
+                txtSL.ReadOnly= true;
             }
             else
             {
 
                 btnThemHang.Visible = true;
-                btnSua.Visible = true;
+               // btnSua.Visible = true;
                 btnXoaHang.Visible = true;
                
             }

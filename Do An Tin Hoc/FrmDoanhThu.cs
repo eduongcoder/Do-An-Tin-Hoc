@@ -290,5 +290,10 @@ namespace Do_An_Tin_Hoc
                 dtp.Enabled = false;
             }
         }
+
+        private void cboMatHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

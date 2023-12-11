@@ -62,7 +62,7 @@ namespace Do_An_Tin_Hoc
             caLam.NhanVien = cboTen.Text;
             caLam.CaLam = xuly.ConvertToCaLam(cboCaLam.Text);
             caLam.TKDiemDanh = CTaiKhoan.getTenTK();
-            MessageBox.Show(caLam.TKDiemDanh);
+           
             if (!xuly.CapNhatDiemDanh(caLam))
             {
                 MessageBox.Show("Không có nhân viên " + cboTen.Text + " làm vào " + cboCaLam.Text);

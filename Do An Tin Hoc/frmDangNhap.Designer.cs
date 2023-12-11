@@ -36,9 +36,6 @@
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lst = new System.Windows.Forms.ListBox();
-            this.lst2 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnDangKy = new System.Windows.Forms.Button();
             this.btnDoiMK = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -47,7 +44,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(236, 9);
+            this.label1.Location = new System.Drawing.Point(200, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(323, 84);
             this.label1.TabIndex = 0;
@@ -57,7 +54,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(105, 187);
+            this.label2.Location = new System.Drawing.Point(103, 160);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(156, 53);
             this.label2.TabIndex = 0;
@@ -67,7 +64,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(105, 240);
+            this.label3.Location = new System.Drawing.Point(103, 213);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(156, 53);
             this.label3.TabIndex = 0;
@@ -91,7 +88,7 @@
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Location = new System.Drawing.Point(276, 329);
+            this.btnDangNhap.Location = new System.Drawing.Point(274, 302);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(89, 52);
             this.btnDangNhap.TabIndex = 2;
@@ -101,7 +98,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(421, 329);
+            this.btnHuy.Location = new System.Drawing.Point(419, 302);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(89, 52);
             this.btnHuy.TabIndex = 2;
@@ -113,45 +110,15 @@
             // 
             this.groupBox1.Controls.Add(this.txtMatKhau);
             this.groupBox1.Controls.Add(this.txtTaiKhoan);
-            this.groupBox1.Location = new System.Drawing.Point(276, 199);
+            this.groupBox1.Location = new System.Drawing.Point(274, 172);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(251, 94);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
-            // lst
-            // 
-            this.lst.FormattingEnabled = true;
-            this.lst.ItemHeight = 16;
-            this.lst.Location = new System.Drawing.Point(533, 199);
-            this.lst.Name = "lst";
-            this.lst.Size = new System.Drawing.Size(244, 52);
-            this.lst.TabIndex = 4;
-            this.lst.SelectedIndexChanged += new System.EventHandler(this.lst_SelectedIndexChanged);
-            // 
-            // lst2
-            // 
-            this.lst2.FormattingEnabled = true;
-            this.lst2.ItemHeight = 16;
-            this.lst2.Location = new System.Drawing.Point(533, 257);
-            this.lst2.Name = "lst2";
-            this.lst2.Size = new System.Drawing.Size(244, 52);
-            this.lst2.TabIndex = 4;
-            this.lst2.SelectedIndexChanged += new System.EventHandler(this.lst2_SelectedIndexChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(688, 329);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 52);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Điền nhanh";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // btnDangKy
             // 
-            this.btnDangKy.Location = new System.Drawing.Point(533, 329);
+            this.btnDangKy.Location = new System.Drawing.Point(531, 302);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(112, 52);
             this.btnDangKy.TabIndex = 2;
@@ -161,7 +128,7 @@
             // 
             // btnDoiMK
             // 
-            this.btnDoiMK.Location = new System.Drawing.Point(132, 329);
+            this.btnDoiMK.Location = new System.Drawing.Point(130, 302);
             this.btnDoiMK.Name = "btnDoiMK";
             this.btnDoiMK.Size = new System.Drawing.Size(99, 52);
             this.btnDoiMK.TabIndex = 2;
@@ -173,13 +140,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lst2);
-            this.Controls.Add(this.lst);
+            this.ClientSize = new System.Drawing.Size(695, 416);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnDangKy);
             this.Controls.Add(this.btnDoiMK);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.label3);
@@ -204,9 +168,6 @@
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox lst;
-        private System.Windows.Forms.ListBox lst2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnDangKy;
         private System.Windows.Forms.Button btnDoiMK;
     }

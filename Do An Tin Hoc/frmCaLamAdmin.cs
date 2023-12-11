@@ -34,6 +34,7 @@ namespace Do_An_Tin_Hoc
             }
             else if(xuly.docFileCaLam(diaChiCaLam) && CTaiKhoan.getTK() == false)
             {
+                label1.Text = "Lịch Làm";
                 dtpNgayLam.Enabled = false;
                 cboCaLam.Enabled = false;
                 cboNhanVien.Enabled = false;
