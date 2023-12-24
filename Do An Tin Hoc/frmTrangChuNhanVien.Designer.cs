@@ -102,6 +102,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmTrangChuNhanVien";
             this.Text = "Trang Chủ";
+            this.Load += new System.EventHandler(this.frmTrangChuNhanVien_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

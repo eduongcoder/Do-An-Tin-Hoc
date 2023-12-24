@@ -25,8 +25,6 @@ namespace Do_An_Tin_Hoc
         {
             if (xuLy.docFile(diachi))
                 AddItems();
-            
-
         }
 
         private void AddItems()
@@ -46,9 +44,6 @@ namespace Do_An_Tin_Hoc
                 txtSoLuong.Text=string.Empty;
             }
         }
-      
-   
-     
         private void HienThi(Dictionary<string,CMatHang> danhSach)
         {
             BindingSource bs = new BindingSource();
@@ -75,8 +70,6 @@ namespace Do_An_Tin_Hoc
                 dsChonMua[mH.m_TenMatHang] = mH;
             }
         }
-
-
         private Dictionary<string, CMatHang> dsChonMua = new Dictionary<string, CMatHang>();
         private void btnThemHang_Click(object sender, EventArgs e)
         {
@@ -128,14 +121,28 @@ namespace Do_An_Tin_Hoc
       
         private void btnXoaHang_Click(object sender, EventArgs e)
         {
-            if (xuLy.TimMatHang(cboTenMatHang.Text) != null&& dgv.RowCount>1)
+            if (xuLy.TimMatHang(cboTenMatHang.Text) != null && dgv.RowCount > 1)
             {
                 dsChonMua.Remove(cboTenMatHang.Text);
                 
                 CGioHang.XoaHang(CGioHang.dsGioHang[cboTenMatHang.Text]);
+                
                 HienThi(dsChonMua);
-            }           
-        }
+                
+            }
+
+             else if (xuLy.TimMatHang(cboTenMatHang.Text)!=null)
+            {
+                dsChonMua.Remove(cboTenMatHang.Text);
+
+                CGioHang.XoaHang(CGioHang.dsGioHang[cboTenMatHang.Text]);
+
+                dgv.Rows.Clear();
+                cboTenMatHang.SelectedIndex = -1;
+                txtGiaTien.Text = "";
+                txtSoLuong.Text = "";
+            }
+}
 
         private void dgv_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -143,11 +150,13 @@ namespace Do_An_Tin_Hoc
             if (dgv.RowCount > 0 && dgv.Rows[e.RowIndex].Cells[0].Value != null)
             {       
            
-                cboTenMatHang.Text = dgv.Rows[e.RowIndex].Cells[0].Value.ToString();
+                cboTenMatHang.SelectedItem = dgv.Rows[e.RowIndex].Cells[0].Value.ToString();          
                 txtGiaTien.Text = xuLy.TimMatHang(cboTenMatHang.Text).m_GiaTien.ToString();
                 txtSoLuong.Text = dgv.Rows[e.RowIndex].Cells[2].Value.ToString();
+               
+                
             }
-            else
+            else if(dgv.Rows[e.RowIndex].Cells[0].Value != null)
             {
                 dgv.Rows.Clear();
             }
@@ -160,7 +169,7 @@ namespace Do_An_Tin_Hoc
             dgv.Rows.Clear();
             dsChonMua.Clear();
             
-            cboTenMatHang.Text = "";
+            cboTenMatHang.SelectedIndex = -1;
             txtGiaTien.Text = "";
             txtSoLuong.Text = "";
         }

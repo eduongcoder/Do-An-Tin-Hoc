@@ -17,12 +17,6 @@ namespace Do_An_Tin_Hoc
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnNhanSu_Click(object sender, EventArgs e)
         {
 
@@ -34,13 +28,10 @@ namespace Do_An_Tin_Hoc
 
         private void btnKho_Click(object sender, EventArgs e)
         {
-            
-                this.Hide();
-                frmKho kho = new frmKho();
-                kho.ShowDialog();
-                this.Show();
-            
-            
+            this.Hide();
+            frmKho kho = new frmKho();
+            kho.ShowDialog();
+            this.Show();
         }
 
         private void btnBanHang_Click(object sender, EventArgs e)

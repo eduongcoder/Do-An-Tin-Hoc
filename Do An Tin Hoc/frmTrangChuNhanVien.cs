@@ -48,5 +48,10 @@ namespace Do_An_Tin_Hoc
             frmDiemDanh.ShowDialog();
             this.Show();
         }
+
+        private void frmTrangChuNhanVien_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
